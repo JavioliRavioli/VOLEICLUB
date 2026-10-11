@@ -1,0 +1,1639 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Guía de posicionamiento · Voleibol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#17191c; --surface:#1f2226; --surface-2:#292d32; --line:#363b42; --track:#3a3f46;
+  --ink:#FCF9FB; --mut:#A1ADB9;
+  --accent:#9F0043; --accent-2:#8E1347; --accent-hi:#E2C0CC; --accent-soft:rgba(159,0,67,.28);
+  --pink-1:#E2C0CC; --pink-2:#F0DEE5;
+  --ok:#4cc38a; --bad:#ff7b7b;
+  --font-d:'Barlow Semi Condensed','Arial Narrow','Segoe UI',system-ui,sans-serif;
+  --font-b:'Barlow','Segoe UI',system-ui,-apple-system,sans-serif;
+  /* cancha (referencia visual) */
+  --teal:#157784; --floor:#e48b3f; --cline:#ffffff;
+  --r-S:#ffb066; --r-OPP:#ff9ec4; --r-OH:#5fd3c8; --r-MB:#86b6f0; --r-L:#b9a2ff;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--font-b)}
+svg.ic{width:1.15em;height:1.15em;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.2em}
+h1,h2,h3{font-family:var(--font-d)}
+
+/* ---------- Cabecera ---------- */
+header{max-width:1100px;margin:0 auto;padding:22px 16px 6px}
+.brand{display:flex;align-items:center;gap:14px}
+.mark{width:46px;height:46px;border-radius:12px;background:var(--accent);display:grid;place-items:center;color:#fff;flex:none}
+.mark svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+h1{margin:0;font-size:1.65rem;line-height:1.05;text-transform:uppercase;letter-spacing:.05em;font-weight:700}
+.sub{margin:3px 0 0;color:var(--mut);font-size:.92rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);color:var(--ink);font:600 .9rem var(--font-b)}
+.chip.hi{background:var(--accent-soft);border-color:rgba(159,0,67,.8);color:var(--pink-2)}
+.rolebar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.rolebar button{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--mut);font:700 .8rem var(--font-d);text-transform:uppercase;letter-spacing:.12em;cursor:pointer}
+.rolebar button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* ---------- Pestañas (estilo stepper con barras) ---------- */
+nav.tabs{display:flex;gap:18px;max-width:1100px;margin:16px auto 0;padding:0 16px;overflow-x:auto}
+nav.tabs button,.stepper button{background:none;border:0;padding:0;cursor:pointer;color:var(--mut);text-align:left;font:700 .78rem/1 var(--font-d);text-transform:uppercase;letter-spacing:.15em;flex:1 0 auto}
+nav.tabs button span,.stepper button span{display:block;white-space:nowrap}
+nav.tabs button[aria-selected="true"],.stepper button[aria-pressed="true"]{color:var(--accent-hi)}
+.ubar{display:block;height:3px;margin-top:10px;border-radius:2px;background:var(--track);position:relative;overflow:hidden}
+.ubar::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--p,0%);background:var(--accent);box-shadow:0 0 8px rgba(159,0,67,.9);transition:width .45s}
+nav.tabs button[aria-selected="true"] .ubar{--p:100%}
+.stepper{display:flex;gap:14px;overflow-x:auto;margin:14px 0 10px;padding-bottom:4px}
+.stepper button{min-width:56px}
+.stepper button[data-st="done"] .ubar{--p:100%}
+.stepper button[data-st="cur"] .ubar{--p:55%}
+
+/* ---------- Layout ---------- */
+main{max-width:1100px;margin:18px auto 40px;padding:0 16px;display:grid;grid-template-columns:minmax(300px,440px) 1fr;gap:20px;align-items:start}
+@media (max-width:860px){main{grid-template-columns:1fr}}
+.courtwrap{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px}
+@media (min-width:861px){.courtwrap{position:sticky;top:12px}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.panel h2{margin:0 0 6px;font-size:1.35rem;text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:10px}
+.panel h3{margin:22px 0 8px;font-size:.88rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent-hi);display:flex;align-items:center;gap:8px}
+.panel p{margin:6px 0}
+.mut{color:var(--mut)}
+b{font-weight:600}
+
+/* ---------- Cancha ---------- */
+svg#court{width:100%;height:auto;display:block;border-radius:10px}
+.outside{fill:var(--teal)}
+.floor{fill:var(--floor)}
+.cline{stroke:var(--cline);stroke-width:3;fill:none}
+.net{stroke:#fff;stroke-width:5;stroke-linecap:round}
+.tape{stroke:#0f1a1c;stroke-width:2.5;stroke-dasharray:.5 6;stroke-linecap:round}
+.post{fill:#cfd4d9}
+.netlbl{fill:rgba(255,255,255,.75);font:700 11px var(--font-d);letter-spacing:.3em;text-anchor:middle}
+.l3{fill:rgba(255,255,255,.85);font:600 9px var(--font-b);letter-spacing:.06em}
+.zlabel{fill:rgba(255,255,255,.28);font:800 34px var(--font-d);text-anchor:middle;dominant-baseline:central}
+.token{transition:transform .9s cubic-bezier(.4,.1,.2,1),opacity .4s;transform-origin:0 0}
+@media (prefers-reduced-motion:reduce){.token{transition:none}}
+.token .body{fill:#0e1a1d;stroke:var(--rc);stroke-width:4}
+.token .tri{fill:#fff;stroke:#16181b;stroke-width:1.5;stroke-linejoin:round}
+.token .lbl{fill:#fff;font:700 13px var(--font-d);letter-spacing:.02em;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.r-A{--rc:var(--r-S)}.r-OP{--rc:var(--r-OPP)}.r-E1,.r-E2{--rc:var(--r-OH)}.r-C1,.r-C2{--rc:var(--r-MB)}.r-L{--rc:var(--r-L)}
+.token .ring{fill:none;stroke:var(--accent);stroke-width:4;opacity:0}
+.token.me .ring{opacity:1;animation:pulse 1.7s infinite}
+.token.me .body{stroke-width:5}
+@keyframes pulse{0%{r:22;opacity:1}100%{r:36;opacity:0}}
+.token:not(.me) .pill{display:none}
+.pill rect{fill:#15171a;opacity:.95}
+.pill circle{fill:#E2C0CC}
+.pill text{fill:#fff;font:600 10.5px var(--font-b);text-anchor:middle;dominant-baseline:central}
+.arrow{stroke-width:4;fill:none;stroke-linecap:round}
+.arrow.path{stroke:var(--accent);stroke-dasharray:8 6;filter:drop-shadow(0 0 1.5px #fff)}
+.arrow.set{stroke:#10161a;stroke-width:3;stroke-dasharray:2 6}
+#mk-path path{fill:var(--accent)} #mk-set path{fill:#10161a}
+.olabel{font:700 12px var(--font-d);letter-spacing:.06em;text-transform:uppercase;fill:#fff;paint-order:stroke;stroke:#16181b;stroke-width:4px;stroke-linejoin:round}
+.recring{fill:none;stroke:#fff;stroke-width:2;stroke-dasharray:4 4}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:.8rem;color:var(--mut);padding:10px 4px 2px;align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%;background:#0e1a1d;border:3px solid var(--rc)}
+.legend .me-dot{border-color:var(--accent);box-shadow:0 0 0 2px rgba(159,0,67,.35)}
+.legend label{margin-left:auto;cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.legend input{accent-color:var(--accent)}
+
+/* ---------- Controles ---------- */
+.zonebtns,.seg{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.zonebtns button,.seg button,.btn{border:1px solid var(--line);background:var(--surface-2);color:var(--ink);border-radius:10px;padding:9px 14px;font:700 .8rem var(--font-d);text-transform:uppercase;letter-spacing:.1em;cursor:pointer;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.zonebtns button{flex:1 1 74px;flex-direction:column;gap:2px}
+.zonebtns button small{font:500 .68rem var(--font-b);text-transform:none;letter-spacing:0;color:var(--mut)}
+.zonebtns button[aria-pressed="true"],.seg button[aria-pressed="true"],.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.zonebtns button[aria-pressed="true"] small{color:var(--pink-1)}
+.btn.primary:hover,.rolebar button[aria-pressed="true"]:hover{background:var(--accent-2);border-color:var(--accent-2)}
+.btn:disabled{opacity:.35;cursor:default}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.card{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:12px 0;background:var(--surface-2)}
+.card.rule{border-left-color:#5fd3c8}
+.card.warn{border-left-color:var(--r-S)}
+ul.steps{margin:6px 0;padding-left:20px} ul.steps li{margin:5px 0}
+table.lu{border-collapse:collapse;width:100%;font-size:.92rem;margin:8px 0}
+table.lu td,table.lu th{border:1px solid var(--line);padding:6px 9px;text-align:left}
+table.lu th{font:700 .72rem var(--font-d);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+table.lu tr.me td{background:var(--accent-soft);font-weight:600}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:7px 0;cursor:pointer}
+.chk input{margin-top:5px;width:18px;height:18px;accent-color:var(--accent)}
+.opts{display:grid;gap:8px;margin:12px 0}
+.opt{text-align:left;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);border-radius:10px;padding:11px 13px;font:inherit;cursor:pointer}
+.opt:hover{border-color:var(--accent)}
+.opt.good{border-color:var(--ok);background:rgba(76,195,138,.14)}
+.opt.bad{border-color:var(--bad);background:rgba(255,123,123,.13)}
+.bar{height:4px;background:var(--track);border-radius:3px;overflow:hidden;margin:8px 0 14px}
+.bar div{height:100%;background:var(--accent);box-shadow:0 0 8px rgba(159,0,67,.9);transition:width .3s}
+.fb{margin-top:10px;padding:11px 13px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line)}
+.fb .okt,.fb .badt{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-d);text-transform:uppercase;letter-spacing:.08em}
+.fb .okt{color:var(--ok)} .fb .badt{color:var(--bad)}
+.score{font:700 3rem var(--font-d);color:var(--accent-hi)}
+.sysarea{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.sysrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.syslabel{font:700 .72rem var(--font-d);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);min-width:64px}
+button.chip{cursor:pointer;font-family:var(--font-d);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.8rem}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+#court.two .r-OP{--rc:var(--r-S)}
+.hdrctl{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.hdrctl .rolebar{margin:0}.hdrctl .sysarea{margin-top:0}
+.art{color:var(--mut);font-size:.8em;white-space:nowrap}
+.zbub{fill:#fff;font:800 20px var(--font-d);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.big{fill:#fff;font:800 70px var(--font-d);text-anchor:middle;paint-order:stroke;stroke:#16181b;stroke-width:7px;stroke-linejoin:round}
+.dogrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:620px){.dogrid{grid-template-columns:1fr}}
+.dogrid h4{margin:0 0 6px;font:700 .85rem var(--font-d);letter-spacing:.14em;text-transform:uppercase;display:flex;gap:8px;align-items:center}
+.card.do{border-left-color:var(--ok)}.card.dont{border-left-color:var(--bad)}
+.ball{transition:transform 1.1s cubic-bezier(.3,.1,.3,1),opacity .3s;transform-origin:0 0;pointer-events:none}
+.ball circle{fill:#fff;stroke:#16181b;stroke-width:2}
+.ball path{fill:none;stroke:#16181b;stroke-width:1.5}
+.dtok .body{fill:#0e1a1d;stroke:var(--rc);stroke-width:4}
+.dtok .tri{fill:#fff;stroke:#16181b;stroke-width:1.5;stroke-linejoin:round}
+.dtok .lbl{fill:#fff;font:700 13px var(--font-d);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.dtok .ring{fill:none;stroke:var(--accent);stroke-width:4;opacity:0}
+.dtok.me .ring{opacity:1;animation:pulse 1.7s infinite}
+.dtok .halo{fill:none;stroke:#ff5252;stroke-width:5;opacity:0}
+.dtok.bad .halo{opacity:1}
+.dtok.bad .body{stroke:#ff5252}
+.dtok.grab{cursor:grab;touch-action:none}
+#court.drag{touch-action:none}
+.token .tk,.dtok .tk{transform-origin:0 0}
+.inp{width:100%;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);font:inherit;margin:6px 0 10px}
+.gl{padding:9px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.gl b{font:700 .95rem var(--font-d);letter-spacing:.04em}
+.gl span{color:var(--mut);font-size:.92rem}
+@media (max-width:860px){
+  html{-webkit-text-size-adjust:100%}
+  body{font-size:15px;overflow-x:hidden}
+  header{padding:14px 12px 4px}
+  h1{font-size:1.2rem}
+  .mark{width:38px;height:38px;border-radius:10px}.mark svg{width:23px;height:23px}
+  .sub{font-size:.8rem}
+  .hdrctl{gap:8px;margin-top:10px}
+  .syslabel{min-width:50px;font-size:.62rem}
+  .hdrctl>.sysrow{flex-wrap:nowrap}
+  .rolebar{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;min-width:0;flex:1;padding-bottom:2px}
+  .rolebar::-webkit-scrollbar{display:none}
+  .rolebar button{flex:none;padding:8px 13px;font-size:.74rem}
+  .chip{font-size:.78rem;padding:6px 11px}
+  button.chip{font-size:.74rem}
+  nav.tabs{gap:18px;padding:0 12px;margin-top:10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  nav.tabs::-webkit-scrollbar{display:none}
+  nav.tabs button{flex:0 0 auto;font-size:.72rem}
+  main{display:block;padding:0 12px;margin:10px auto 28px}
+  .courtwrap,.panel{min-width:0;max-width:100%}
+  .stepper,.zonebtns,.seg{max-width:100%}
+  .courtwrap{position:sticky;top:0;z-index:30;margin:0 -12px 10px;padding:6px 10px;border-radius:0 0 16px 16px;box-shadow:0 8px 18px rgba(0,0,0,.35)}
+  svg#court{max-height:40vh;width:100%;height:auto}
+  .legend{padding:4px 2px 0;font-size:.74rem}
+  .legend>span{display:none}
+  .legend label{margin-left:0}
+  .panel{padding:14px 12px;border-radius:14px}
+  .panel h2{font-size:1.1rem}
+  .zonebtns{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+  .zonebtns button{flex:none;padding:8px 6px;font-size:.7rem}
+  .seg{gap:6px}.seg button{flex:1 1 auto;padding:10px;font-size:.72rem}
+  .btn{min-height:44px}
+  .nav{gap:8px;flex-wrap:wrap}.nav .btn{flex:1 1 30%;padding:8px 10px;font-size:.72rem}
+  #pplay{flex:1 1 100%;order:-1}
+  .stepper{gap:12px;scrollbar-width:none}.stepper::-webkit-scrollbar{display:none}
+  .stepper button{font-size:.7rem}
+  table.lu{font-size:.78rem}table.lu td,table.lu th{padding:5px 6px}
+  .opt{padding:12px}
+  .token .tk,.dtok .tk{transform:scale(1.3)}
+  .olabel{font-size:15px;stroke-width:5px}
+  .zbub{font-size:22px}
+  .prow{flex-direction:column;gap:0}
+  footer{padding:0 12px}
+}
+footer{max-width:1100px;margin:0 auto 30px;padding:0 16px;color:var(--mut);font-size:.8rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="mark"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M4 9h16"/><path d="M2 3h20"/><circle cx="12" cy="15" r="2"/></svg></span>
+    <div>
+      <h1>Guía de posicionamiento · Voleibol</h1>
+      <p class="sub">Rotaciones, recepción y roles · según el reglamento FIVB 2025–2028</p>
+    </div>
+  </div>
+  <div class="hdrctl">
+    <div class="sysrow"><span class="syslabel">Jugador</span>
+      <div class="rolebar" id="roleSel" role="group" aria-label="Jugador">
+        <button data-role="armador" aria-pressed="true"><i data-ic="hand"></i>Armador</button>
+        <button data-role="opuesto" aria-pressed="false"><i data-ic="zap"></i>Opuesto</button>
+        <button data-role="punta" aria-pressed="false"><i data-ic="arrow-up-right"></i>Punta</button>
+        <button data-role="central" aria-pressed="false"><i data-ic="brick-wall"></i>Central</button>
+        <button data-role="libero" aria-pressed="false"><i data-ic="shield"></i>Líbero</button>
+      </div>
+    </div>
+    <div class="sysarea" id="sysArea"></div>
+  </div>
+</header>
+<nav class="tabs" role="tablist">
+  <button role="tab" data-tab="general" aria-selected="true"><span>Guía general</span><em class="ubar"></em></button>
+  <button role="tab" data-tab="inicio" aria-selected="false"><span>Inicio de partido</span><em class="ubar"></em></button>
+  <button role="tab" data-tab="rot" aria-selected="false"><span>¿Cómo rotar?</span><em class="ubar"></em></button>
+  <button role="tab" data-tab="play" aria-selected="false"><span>Jugada</span><em class="ubar"></em></button>
+  <button role="tab" data-tab="legal" aria-selected="false"><span>¿Es legal?</span><em class="ubar"></em></button>
+  <button role="tab" data-tab="tact" aria-selected="false"><span>Táctica</span><em class="ubar"></em></button>
+  <button role="tab" data-tab="quiz" aria-selected="false"><span>Prueba</span><em class="ubar"></em></button>
+</nav>
+
+<main>
+  <section class="courtwrap">
+    <svg id="court" viewBox="0 0 440 470" role="img" aria-label="Media cancha vista desde tu lado, red arriba">
+      <defs>
+        <marker id="mk-path" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z"/></marker>
+        <marker id="mk-set" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z"/></marker>
+      </defs>
+      <rect class="outside" x="0" y="0" width="440" height="470"/>
+      <rect class="floor" x="40" y="50" width="360" height="360"/>
+      <g id="zones"></g>
+      <line class="cline" x1="40" y1="170" x2="400" y2="170"/>
+      <rect class="cline" x="40" y="50" width="360" height="360"/>
+      <line class="tape" x1="40" y1="44" x2="400" y2="44"/>
+      <line class="net" x1="30" y1="50" x2="410" y2="50"/>
+      <circle class="post" cx="30" cy="50" r="6"/><circle class="post" cx="410" cy="50" r="6"/>
+      <text class="netlbl" x="220" y="30">RED</text>
+      <text class="l3" x="46" y="164">LÍNEA DE 3 M</text>
+      <g id="ov"></g>
+      <g id="tokens"></g>
+      <g id="ballg"><g id="ball" class="ball" style="opacity:0"><circle r="9"/><path d="M-9 0Q0-6 9 0M0-9Q-6 0 0 9"/></g></g>
+    </svg>
+    <div class="legend">
+      <span id="legS" style="--rc:var(--r-S)"><b class="dot"></b><i>S armador</i></span>
+      <span id="legOPP" style="--rc:var(--r-OPP)"><b class="dot"></b><i>OPP opuesto</i></span>
+      <span style="--rc:var(--r-OH)"><b class="dot"></b>OH punta</span>
+      <span style="--rc:var(--r-MB)"><b class="dot"></b>MB central</span>
+      <span style="--rc:var(--r-L)"><b class="dot"></b>L líbero</span>
+      <span><b class="dot me-dot" style="--rc:#0e1a1d"></b>Tú</span>
+      <label><input type="checkbox" id="libChk" checked> Usar líbero</label>
+    </div>
+  </section>
+  <section class="panel" id="panel"></section>
+</main>
+<footer>Basado en el Reglamento Oficial de Voleibol FIVB 2025–2028. Los esquemas de posiciones, recepción y defensa son una base simplificada: cada entrenador los ajusta, y las ligas locales pueden variar el reglamento.</footer>
+
+<script>
+
+/* ============ Datos ============ */
+const NS='http://www.w3.org/2000/svg';
+const $=(s,e=document)=>e.querySelector(s);
+const state={role:'armador',sys:'5-1',sn:'S1',me:'A',n:1,gsec:0,gz:1,gl:'tres',tab:'general',rot:1,step:0,libero:true,introRot:1,introView:'base'};
+const ICONS={
+ hand:'<path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>',
+ swap:'<path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
+ zap:'<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>',
+ check:'<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+ x:'<circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/>',
+ rotate:'<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/>',
+ trophy:'<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>',
+ 'list-checks':'<path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/>',
+ 'arrow-right':'<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+ 'arrow-left':'<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>',
+ target:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+ book:'<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
+ shield:'<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',
+ 'arrow-up-right':'<path d="M7 7h10v10"/><path d="M7 17 17 7"/>',
+ 'brick-wall':'<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 9v6"/><path d="M16 15v6"/><path d="M16 3v6"/><path d="M3 15h18"/><path d="M3 9h18"/><path d="M8 15v6"/><path d="M8 3v6"/>',
+ ban:'<circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/>',
+ pause:'<rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/>',
+ play:'<polygon points="6 3 20 12 6 21 6 3"/>'
+};
+const ic=(n,extra='')=>`<svg class="ic ${extra}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n]||''}</svg>`;
+const sx=x=>40+x*40, sy=y=>50+y*40;           // metros -> px del SVG
+const ZONES=[1,6,5,4,3,2];                     // orden horario de rotación
+const ROLES=['A','OP','E1','E2','C1','C2','L'];
+// ---- Sistemas de juego: 5-1 / 4-2 / 6-2 ----
+// Nomenclatura: S armador · OPP opuesto · OH punta · MB central · L líbero.
+// Con dos armadores (4-2 / 6-2) pasa a S1 y S2.
+let LABEL,NAME_ES,NAME,ONE;
+function applySystem(){
+  ONE=state.sys==='5-1';
+  LABEL={A:ONE?'S':'S1',OP:ONE?'OPP':'S2',E1:'OH1',E2:'OH2',C1:'MB1',C2:'MB2',L:'L'};
+  NAME_ES={A:ONE?'Armador':'Armador 1',OP:ONE?'Opuesto':'Armador 2',E1:'Punta 1',E2:'Punta 2',C1:'Central 1',C2:'Central 2',L:'Líbero'};
+  NAME=Object.fromEntries(Object.keys(NAME_ES).map(k=>[k,NAME_ES[k]+' ('+LABEL[k]+')']));
+  const c=$('#court');if(c&&c.classList)c.classList.toggle('two',!ONE);
+  const ls=$('#legS i');if(ls)ls.textContent=ONE?'S armador':'S1 armador';
+  const lo=$('#legOPP i');if(lo)lo.textContent=ONE?'OPP opuesto':'S2 armador';
+  const lp=$('#legOPP');if(lp)lp.style.setProperty('--rc',ONE?'var(--r-OPP)':'var(--r-S)');
+}
+// quién arma en cada rotación r (A = S1/S, OP = S2/OPP)
+const activeRole=r=>state.sys==='5-1'?'A':state.sys==='6-2'?(r<=3?'A':'OP'):(r<=3?'OP':'A');
+const isSetting=r=>state.me===activeRole(r);
+// rotación "equivalente" para reutilizar coordenadas de recepción
+const cr=r=>state.sys==='5-1'?r:state.sys==='6-2'?((r-1)%3)+1:((r-1)%3)+4;
+const RES62={
+ 1:'Estás atrás a la derecha y <b>armas tú</b>: en el 6-2 siempre arma el armador de la fila trasera. Delante tienes <b>3 atacantes de red</b>: el otro armador (que ahora ataca), un central y un punta.',
+ 2:'Estás atrás al centro y <b>armas tú</b> (6-2: arma el de atrás). Delante: punta, el otro armador y un central; los 3 atacan. Penetración de <b>distancia media</b>.',
+ 3:'Estás atrás a la izquierda y <b>armas tú</b>. Es la <b>penetración más larga</b>. Delante: central, punta y el otro armador atacando por la derecha.'
+};
+const RES42={
+ 4:'Estás en la red, a la izquierda, y <b>armas tú</b>: en el 4-2 arma el armador de la fila delantera. Sólo tienes <b>2 atacantes de red</b> (central y punta); el otro armador está atrás y no ataca.',
+ 5:'Estás en el centro de la red y <b>armas tú</b>: la posición más cómoda. 2 atacantes de red (punta y central) + pipe del punta de atrás. Gran opción de <b>finta</b>.',
+ 6:'Estás delante a la derecha, ya casi en el <b>target</b>, y <b>armas tú</b>. 2 atacantes de red (central y punta); el otro armador está atrás y no ataca.'
+};
+const resumenFor=(reff,d)=>state.sys==='6-2'&&RES62[reff]?RES62[reff]:state.sys==='4-2'&&RES42[reff]?RES42[reff]:d.resumen;
+function saqueList(r,d){
+  const lu=lineup(r),z=myZone(r);
+  const first=z===1?'<li><b>Sacas tú</b> desde detrás de la línea de fondo, zona derecha.</li>':`<li>Saca <b>${NAME[lu[1]]}</b> desde zona 1.</li>`;
+  return first+d.saque.slice(1).map(x=>`<li>${x}</li>`).join('');
+}
+const DEFC={
+ 1:['Zaguero derecho: defiendes zona 1 (diagonal larga).','No atacas ni entras al target: tu tarea es defender y cubrir.'],
+ 6:['Zaguero central: defiendes bolas largas y fintas.','Sé el apoyo de los que defienden a ambos lados.'],
+ 5:['Zaguero izquierdo: defiendes zona 5 (línea larga y tip).','Mantén la comunicación con el líbero para repartir las bolas.']
+};
+function stepBodyCover(r,s){
+  const lu=lineup(r),z=myZone(r),sz=OPP[z];
+  if(s===0) return `<p>Estás <b>${ZN[z]}</b> (zona ${z}). En el 4-2 <b>arma el armador de la fila delantera</b> (${NAME[lu[sz]]}, tu diagonal, zona ${sz}): en esta rotación <b>no armas ni atacas</b>.</p>${lineupTable(r)}
+    <ul class="steps"><li>Tu trabajo: defender, <b>cubrir</b> a los atacantes y, si hace falta, armar de emergencia.</li>
+    <li>Delante tienes a tu armador y 2 atacantes de red; atrás reciben los puntas y el líbero.</li></ul>`;
+  if(s===1) return `<ul class="steps"><li>Colócate <b>fuera del pasillo de pase</b>: reciben los puntas y el líbero.</li>
+    <li>Respeta la regla de posición de tu zona hasta el golpe del saque.</li>
+    <li>Si el pase se va lejos y tu armador no llega, grita "¡mía!" y arma tú de emergencia.</li></ul>
+    <div class="card rule"><b>Regla de solapamiento en tu zona:</b> ${myRule(r)}</div>
+    <p class="mut">Los círculos punteados marcan a quienes <b>reciben</b>.</p>`;
+  if(s===2) return `<ul class="steps"><li>Al golpe del saque, avanza <b>2–3 m</b> a tu posición de cobertura, detrás de los atacantes.</li>
+    <li>No cruces la línea del pase ni la carrera de tu armador.</li>
+    <li>Mira a tu armador: la cobertura se ajusta según a quién arma.</li></ul>`;
+  if(s===3) return `<ul class="steps"><li>Colócate en <b>semicírculo detrás del atacante</b>, a 2–3 m, junto con los otros zagueros.</li>
+    <li>Si el bloqueo rival devuelve la bola, la controlas y la juegas a un atacante.</li>
+    <li>Rodillas flexionadas y brazos listos: la bola llega rápido y de arriba.</li></ul>`;
+  if(s===4) return `<ul class="steps">${DEFC[z].map(x=>`<li>${x}</li>`).join('')}</ul>`;
+  return `<ul class="steps">${saqueList(r,{saque:['x','Tras el saque pasa a tu zona de defensa y vigila a los atacantes rivales.']})}</ul>`;
+}
+applySystem();
+
+const OPP={1:4,2:5,3:6,4:1,5:2,6:3};
+const T=[6.9,0.9];                             // target del armador
+
+// Rotación r: armador en ZONES[r-1]; los jugadores avanzan 1 lugar horario por rotación
+function lineup(r){
+  let o=['A','C2','E2','OP','C1','E1'];        // zonas 1,6,5,4,3,2 en R1
+  for(let i=1;i<r;i++) o=[o[5],...o.slice(0,5)];
+  const m={}; ZONES.forEach((z,i)=>m[z]=o[i]); return m;
+}
+const setterZone=r=>ZONES[r-1];
+const nm=role=>NAME[role]+(role===state.me?' · tú':'');
+const isFront=z=>z>=2&&z<=4;
+
+const BASE={4:[1.5,1.6],3:[4.5,1.6],2:[7.5,1.6],5:[1.5,6.6],6:[4.5,6.6],1:[7.5,6.6]};
+const DEF ={4:[1.8,0.9],3:[4.5,0.9],2:[7.2,0.9],5:[1.6,6.2],6:[4.5,7.2],1:[7.6,5.8]};
+const REC={
+ 1:{4:[1.5,1.4],3:[4.5,1.4],2:[6.0,3.4],5:[2.0,5.8],6:[4.3,6.4],1:[8.2,4.8]},
+ 2:{4:[2.2,3.2],3:[4.5,1.4],2:[7.6,1.4],5:[3.0,6.4],6:[5.9,5.4],1:[7.3,6.2]},
+ 3:{4:[1.5,1.4],3:[3.8,3.2],2:[7.8,1.4],5:[3.0,5.6],6:[5.2,6.4],1:[7.6,5.8]},
+ 4:{4:[1.8,1.2],3:[4.6,1.5],2:[7.2,3.2],5:[2.2,5.8],6:[4.5,6.5],1:[8.0,4.8]},
+ 5:{4:[2.4,3.2],3:[5.2,1.2],2:[7.8,1.4],5:[2.4,6.3],6:[4.8,7.2],1:[7.2,5.6]},
+ 6:{4:[1.5,1.4],3:[4.2,3.2],2:[7.6,1.0],5:[2.2,6.8],6:[4.6,6.2],1:[7.0,6.4]}
+};
+const SERVER=[8.0,9.6];
+
+function attackPos(role,z,r){
+  const f=isFront(z);
+  if(role===activeRole(r)) return T;
+  if(role==='A'||role==='OP') return f?[8.2,2.1]:(state.sys==='5-1'?[7.9,4.6]:[7.6,5.8]);
+  if(role[0]==='E') return f?[1.4,2.1]:[4.6,4.4];
+  if(role[0]==='C') return f?[4.4,1.9]:[4.5,6.7];
+  return [4.5,6.7];
+}
+function formation(r,view){
+  const lu=lineup(r);
+  return ZONES.map(z=>{
+    const role=lu[z]; let p;
+    if(view==='base') p=BASE[z];
+    else if(view==='rec') p=REC[cr(r)][z];
+    else if(view==='def') p=DEF[z];
+    else if(view==='serve') p=(z===1)?SERVER:BASE[z];
+    else p=attackPos(role,z,r);
+    return {role,zone:z,x:p[0],y:p[1]};
+  });
+}
+
+const RULEZ={
+ 1:'Detrás del jugador de zona 2 y a la derecha del de zona 6.',
+ 6:'Detrás del jugador de zona 3, a la derecha del de zona 5 y a la izquierda del de zona 1.',
+ 5:'Detrás del jugador de zona 4 y a la izquierda del de zona 6.',
+ 4:'A la izquierda del jugador de zona 3 y delante del de zona 5.',
+ 3:'A la derecha del jugador de zona 4, a la izquierda del de zona 2 y delante del de zona 6.',
+ 2:'A la derecha del jugador de zona 3 y delante del de zona 1.'
+};
+const myRule=r=>RULEZ[myZone(r)];
+const RD={
+ 1:{nombre:'Zona 1 · atrás a la derecha',
+   resumen:'Estás atrás a la derecha y <b>sacas tú</b> cuando tu equipo saca en esta rotación. Delante tienes 3 atacantes de red: opuesto, central y punta. Tu recorrido hasta el target es el <b>más corto de las rotaciones de fondo</b>.',
+   rec:['Colócate pegado a la banda derecha, a unos 4–5 m de la red, <b>justo detrás del punta de zona 2</b>.','No eres receptor: los pases van hacia el centro-izquierda de tu posición.','Mantén el cuerpo girado hacia el centro de la cancha, listo para salir en diagonal.'],
+   trans:['Sal en <b>diagonal corta</b> hacia el target (derecha, cerca de la red).','El punta de zona 2 recibe y luego va a zona 4: cuidado en el cruce, no te lo lleves por delante.','Te sobra tiempo: llega y espera el balón con los pies ya orientados.'],
+   def:['Eres zaguero derecho: defiendes zona 1 (diagonal larga del atacante rival).','En cuanto se defiende o el balón cruza, <b>corre al target</b>; comunica "¡armo yo!" o "¡libre!".'],
+   saque:['Sacas tú desde detrás de la línea de fondo, zona derecha.','Tras sacar, entra rápido a la cancha a tu zona de defensa y prepara la transición al target.']},
+ 2:{nombre:'Zona 6 · atrás al centro',
+   resumen:'Estás atrás al centro. Delante: punta (4), opuesto (3) y central (2): 3 atacantes de red. Penetración de <b>distancia media</b>.',
+   rec:['Colócate en el fondo, <b>desplazado a la derecha del centro</b>, detrás del opuesto de zona 3.','Debes quedar entre el jugador de zona 5 (izquierda) y el de zona 1 (derecha).','Quédate fuera del pasillo de pase: los receptores son el líbero y los puntas.'],
+   trans:['Sal en <b>diagonal adelante y a la derecha</b> en cuanto el rival golpea el saque.','No esperes a ver el pase: si sales tarde llegas con el balón encima.'],
+   def:['Zaguero central: cubres la zona 6 (bolas largas y fintas por encima del bloqueo).','Al terminar la defensa, transición rápida al target por la derecha.'],
+   saque:['Saca el jugador de zona 1 (punta 1). Tú esperas en zona 6.','Tras el saque, ajústate a defensa y mira dónde va el atacante rival para salir al target.']},
+ 3:{nombre:'Zona 5 · atrás a la izquierda',
+   resumen:'La rotación más <b>lejana al target</b>. Delante: central (4), punta (3) y opuesto (2): 3 atacantes de red.',
+   rec:['Colócate detrás del central de zona 4 y <b>adelántate todo lo que la regla permita</b> hacia el centro (siempre a la izquierda del jugador de zona 6).','Cada metro que ganes aquí es medio segundo que te ahorras en la carrera.'],
+   trans:['Es la <b>penetración más larga</b>: cruza en diagonal por <b>detrás</b> del punta de zona 3, sin cortarle la línea de pase.','Sal con el golpe del saque, no con el pase. Pasos grandes al inicio, cortos al final.','Si el pase es malo, prioriza llegar con equilibrio antes que llegar rápido.'],
+   def:['Zaguero izquierdo: defiendes zona 5 (línea larga y tip por el lado izquierdo).','La transición es larga: en cuanto el rival ataque, empieza a moverte hacia la derecha.'],
+   saque:['Saca el jugador de zona 1 (central 1 / líbero según tu esquema).','Tu base es zona 5; vigila que el que defiende el centro te abra espacio hacia el target.']},
+ 4:{nombre:'Zona 4 · delante a la izquierda',
+   resumen:'Estás en la red, a la izquierda. Solo tienes <b>2 atacantes de red</b> (central y punta); el opuesto ataca de fondo por la derecha. Puedes <b>fintar</b> de segunda.',
+   rec:['Colócate junto a la red en zona 4, <b>a la izquierda del central</b> y por delante del jugador de zona 5.','No hay que ir lejos: el target está a unos 5 m en línea recta por la red.'],
+   trans:['Corre <b>paralelo a la red</b> hacia el target, pasando por detrás del central (que prepara su rápida).','Comunica con el central para no chocar.','Llega con los hombros abiertos hacia zona 4.'],
+   def:['Eres bloqueador izquierdo. Bloquea al atacante rival de su zona punta y cierra la diagonal.','Después del bloqueo, apóyate y corre al target (usa la red como guía).'],
+   saque:['Saca el opuesto desde zona 1.','Tu base es el bloqueo izquierdo; en cuanto cruza el saque recupera tu lado y sal al target.']},
+ 5:{nombre:'Zona 3 · delante al centro',
+   resumen:'Estás en el centro de la red: <b>la más cómoda</b> para armar. 2 atacantes de red (punta y central) + opuesto por detrás. Gran opción de <b>finta</b>.',
+   rec:['Colócate cerca de la red, <b>entre el punta de zona 4 (izquierda) y el central de zona 2 (derecha)</b>, por delante del jugador de zona 6.','Mantén 1–2 m a la izquierda del target para no cortar el pase.'],
+   trans:['Desplazamiento <b>corto</b>: 1–2 pasos laterales al target.','Con tiempo de sobra, mira el bloqueo rival: si está mal puesto, finta de segunda.'],
+   def:['Bloqueas en el centro con tus dos compañeros de red.','Tras el bloqueo, aterriza bien y orienta el cuerpo al target.'],
+   saque:['Saca el punta 2 desde zona 1.','Tu base es el bloqueo central; al cruzar el saque ve a defensa/transición.']},
+ 6:{nombre:'Zona 2 · delante a la derecha',
+   resumen:'Ya estás casi <b>en el target</b>. 2 atacantes de red (central y punta); el opuesto ataca de fondo desde la derecha.',
+   rec:['Colócate pegado a la red en zona 2, <b>a la derecha del punta de zona 3</b> y por delante del jugador de zona 1.','No te metas en la línea del pase; si el pase va alto, ábrete un paso.'],
+   trans:['Casi no te mueves: <b>1 paso hacia el centro</b> para quedar en el target.','Aprovecha para observar bloqueo rival y a tus atacantes antes del toque.'],
+   def:['Bloqueas en zona 2 (atacante punta rival).','Tras bloquear, ve a la red y prepárate a armar.'],
+   saque:['Saca el central 2 / líbero desde zona 1.','Tu base es el bloqueo derecho.']}
+};
+const ZN={1:'atrás a la derecha',2:'delante a la derecha',3:'delante al centro',4:'delante a la izquierda',5:'atrás a la izquierda',6:'atrás al centro'};
+const OREC={
+ 4:['Pégate a la red en zona 4, <b>a la izquierda del central</b>. No recibes: eres el 3er atacante y te escondes del pasillo de pase.','Mira el saque pero ya piensa en tu cruce hacia la derecha: el armador sale a tu derecha desde zona 1.'],
+ 3:['Pégate a la red en el centro, entre los jugadores de zonas 4 y 2. No recibes.','Deja libre el pasillo de pase y prepárate para salir hacia la derecha.'],
+ 2:['Ya estás en tu lado de ataque: quédate pegado a la red a la derecha del jugador de zona 3, <b>fuera de la línea del pase</b>.','Aprovecha para mirar el bloqueo rival y ver si dejan huecos por tu lado.'],
+ 1:['Zaguero derecho: colócate detrás del jugador de zona 2 y a la derecha del de zona 6, hacia la banda derecha. No recibes.','Ojo: el armador de la fila delantera ocupa el target; no te cruces con él.'],
+ 6:['Zaguero central: quédate fuera del pasillo de pase, entre el de zona 5 y el de zona 1, detrás del jugador de zona 3. No recibes.','Mira hacia la derecha: tu destino de ataque está en zona 1.'],
+ 5:['Zaguero izquierdo: colócate detrás del jugador de zona 4 y a la izquierda del de zona 6. No recibes.','Es tu rotación más lejana a tu lado de ataque: no pierdas de vista al armador.']
+};
+const OTRANS={
+ 4:['Sal con el golpe del saque y <b>cruza toda la red</b> hasta zona 2.','Pasa <b>por detrás</b> (más lejos de la red) del armador y del central para no cortarles la jugada.','Es tu cruce más largo: llega con tiempo para tomar carrera.'],
+ 3:['Cruza <b>unos 3 m hacia la derecha</b> hasta zona 2, por detrás del armador que va al target.','Mantén la vista en el pase y el armador mientras te desplazas.'],
+ 2:['Ya estás: da <b>1 paso hacia fuera</b> para abrir ángulo y toma carrera.','No te pegues a la banda: deja 1–1,5 m para tu aproximación.'],
+ 1:['Quédate en zona 1; <b>prepara tu aproximación de zaga</b> a 1–2 m detrás de la línea de 3 m.','Cuida no entrar al paso del armador que sale al target.'],
+ 6:['Corre en <b>diagonal hacia zona 1</b> por detrás del pase, para atacar de zaga.','Sal con el golpe del saque; el cruce es corto pero hay poco tiempo.'],
+ 5:['Cruza <b>todo el fondo hacia zona 1</b> por detrás del líbero y del punta.','Es el cruce de fondo más largo: arranca al golpe del saque y llega con carrera lanzada.']
+};
+const ODEF={
+ 4:['Bloqueas en zona 4 junto al central: cierra la diagonal y deja la línea a la defensa.','Tras bloquear, aterriza y prepárate para cruzar de nuevo a tu lado de ataque.'],
+ 3:['Bloqueas al centro con tus compañeros; lee al armador rival y cierra el centro.','Tras bloquear, retira hacia tu lado de ataque (zona 2).'],
+ 2:['Bloqueas en zona 2 contra el punta rival, su atacante más habitual.','Aterriza abierto hacia fuera: ya estás en tu lado de ataque.'],
+ 1:['Zaguero derecho: defiendes zona 1 (diagonal larga).','En transición, sube hacia la línea de 3 m para tu aproximación de zaga.'],
+ 6:['Zaguero central: defiendes bolas largas y fintas.','Para llegar a zona 1 a atacar, sal por detrás del armador.'],
+ 5:['Zaguero izquierdo: defiendes zona 5 (línea larga y tip).','Tras defender, cruza al lado derecho por detrás: arranca con el primer toque de defensa.']
+};
+const COMMON_OP={
+ rec:['Rodillas flexionadas, peso en la punta de los pies; mira al sacador y al armador.','Las reglas de posición se controlan <b>sólo al golpe del saque</b> y sólo al equipo que recibe (art. 7.4): después eres libre.','Si el saque te cae encima, grita "¡mía!" y recibe: es una emergencia; lo normal es que no recibas.'],
+ trans:['Sal <b>al golpe del saque</b>, no al pase.','Llega a tu punto de arranque <b>antes de que el armador toque</b> la bola.','Pídele la bola con la voz ("¡dame!") o una señal acordada.']
+};
+const COMMON={
+ rec:['Rodillas flexionadas, peso en la punta de los pies, mirada en el sacador.','Las reglas de posición se controlan <b>sólo al golpe del saque</b> y sólo al equipo que recibe (art. 7.4): después eres libre.','Si el pase te cae cerca y tienes que tocarlo, grita "¡mía!".'],
+ trans:['Sal <b>al golpe del saque</b>, no al pase.','Llega al target <b>antes que el balón</b>: pies orientados a zona 4, equilibrado.','Postura de armado: manos arriba formando un triángulo, balón sobre la frente, piernas y brazos se extienden juntos.']
+};
+function frontRow(r){const lu=lineup(r);return [4,3,2].map(z=>lu[z]);}
+
+/* ============ Cancha ============ */
+const tok={};
+(function buildCourt(){
+  const zg=$('#zones');
+  Object.entries(BASE).forEach(([z,p])=>{
+    const t=document.createElementNS(NS,'text');
+    t.setAttribute('x',sx(p[0]));t.setAttribute('y',sy(p[1]));t.setAttribute('class','zlabel');t.textContent=z;zg.appendChild(t);
+  });
+  const g=$('#tokens');
+  ROLES.forEach(r=>{
+    const e=document.createElementNS(NS,'g');e.setAttribute('class','token r-'+r);
+    e.style.transform=`translate(${sx(4.5)}px,${sy(4.5)}px)`;e.style.opacity=0;
+    e.innerHTML=`<g class="tk"><polygon class="tri" points="-6,-26 6,-26 0,-37"/><circle class="ring" r="22"/><circle class="body" r="19"/><text class="lbl">${LABEL[r]}</text><g class="pill" transform="translate(0,36)"><rect x="-40" y="-10" width="80" height="20" rx="10"/><circle cx="-28" cy="0" r="4"/><text class="pilltxt" x="7">Tú</text></g></g>`;
+    g.appendChild(e);tok[r]=e;
+  });
+})();
+
+function show(view,r,opts={}){
+  const map={};
+  if(view) formation(r,view).forEach(p=>{
+    let role=p.role;
+    if(state.libero&&[5,6,1].includes(p.zone)&&role[0]==='C'&&!(view==='serve'&&p.zone===1)) role='L';
+    map[role]={...p,role};
+  });
+  Object.keys(opts.override||{}).forEach(k=>{if(map[k]){const o=opts.override[k];map[k]={...map[k],x:o[0],y:o[1]};}});
+  ROLES.forEach(role=>{
+    const p=map[role],t=tok[role];
+    if(p&&!(opts.hide||[]).includes(role)){t.style.transform=`translate(${sx(p.x)}px,${sy(p.y)}px)`;t.style.opacity=1;}
+    else t.style.opacity=0;
+    t.classList.toggle('me',role===state.me&&!!p&&!(opts.hide||[]).includes(role));
+    t.querySelector('.lbl').textContent=LABEL[role];
+    t.querySelector('.pilltxt').textContent='Tú · '+ACT[gtype(r)];
+  });
+  return map;
+}
+function el(name,attrs,parent){const e=document.createElementNS(NS,name);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+function clearOv(){$('#ov').innerHTML='';}
+function arrow(a,b,cls,label){
+  const dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy)||1,s=len>1.6?0.5:0;
+  const x1=a[0]+dx/len*s,y1=a[1]+dy/len*s,x2=b[0]-dx/len*s,y2=b[1]-dy/len*s;
+  el('line',{x1:sx(x1),y1:sy(y1),x2:sx(x2),y2:sy(y2),class:'arrow '+cls,'marker-end':`url(#mk-${cls})`},$('#ov'));
+  if(label){const t=el('text',{x:sx((x1+x2)/2),y:sy((y1+y2)/2)-7,class:'olabel','text-anchor':'middle'},$('#ov'));t.textContent=label;}
+}
+function mlabel(x,y,txt){const t=el('text',{x:sx(x),y:sy(y),class:'olabel','text-anchor':'middle'},$('#ov'));t.textContent=txt;}
+function evtToM(e){
+  const svg=$('#court'),pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;
+  const p=pt.matrixTransform(svg.getScreenCTM().inverse());return [(p.x-40)/40,(p.y-50)/40];
+}
+
+/* ============ Roles (armador, opuesto, punta, central, líbero) y utilidades ============ */
+const ul=a=>'<ul class="steps">'+a.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+const art=n=>`<span class="art">art. ${n}</span>`;
+const ruleCard=r=>`<div class="card rule"><b>Regla de posiciones en tu zona (${art('7.4')}):</b> ${myRule(r)}<br><span class="mut">Sólo la controla el árbitro al equipo que <b>recibe</b>, en el instante del golpe de saque, según la posición de los pies.</span></div>`;
+
+const syncMe=()=>{const r=state.role;
+  state.me=r==='opuesto'?'OP':r==='punta'?'E'+state.n:r==='central'?'C'+state.n:r==='libero'?'L':(state.sys==='5-1'?'A':(state.sn==='S1'?'A':'OP'));};
+const ME_NAME=()=>({armador:'armador',opuesto:'opuesto',punta:'punta',central:'central',libero:'líbero'})[state.role];
+// zona del jugador "yo" en la rotación r (el líbero ocupa la zona del central de fondo)
+const myZone=r=>state.me==='L'?[1,6,5].find(z=>lineup(r)[z][0]==='C'):ZONES.find(z=>lineup(r)[z]===state.me);
+const rotOfMyZone=z=>{for(let k=1;k<=6;k++){if(myZone(k)===z)return k;}return 1;};
+const dispRole=(role,z)=>(state.libero&&[5,6,1].includes(z)&&role[0]==='C')?'L':role;
+const gtype=r=>{const m=state.me;
+  if(m==='A'||m==='OP') return isSetting(r)?'set':(state.sys==='4-2'?'cover':'opp');
+  if(m[0]==='E') return 'oh';
+  if(m[0]==='C') return (state.libero&&!isFront(myZone(r)))?'bench':'mb';
+  return 'lib';};
+const ACT={set:'arma',opp:'ataca',cover:'cubre',oh:'ataca',mb:'bloquea',bench:'banca',lib:'defiende'};
+const GDESC={set:'Esta rotación armas tú',opp:'Esta rotación atacas',cover:'Esta rotación cubres (no armas ni atacas)',
+  oh:'Recibes y atacas en esta rotación',mb:'Bloqueas y atacas rápido en esta rotación',bench:'Esta rotación te sustituye el líbero',lib:'Recibes, defiendes y cubres en esta rotación'};
+const STEPS_T=r=>({
+  set:['Dónde estás','Recepción: tu base','Sal al target','Arma: elige a quién','Bloqueo y defensa','Cuando saca tu equipo'],
+  opp:['Dónde estás','Recepción: tu base','Cruza a tu zona de ataque','Ataca: tu bola','Bloqueo y defensa','Cuando saca tu equipo'],
+  cover:['Dónde estás','Recepción: tu base','Transición a cobertura','Cobertura del ataque','Defensa','Cuando saca tu equipo'],
+  oh:['Dónde estás','Recepción: tu base','Sal a atacar','Ataca: tu bola','Bloqueo y defensa','Cuando saca tu equipo'],
+  mb:['Dónde estás','Recepción: tu base','Cruza a tu rápida','Rápida y bloqueo','Bloqueo y defensa','Cuando saca tu equipo'],
+  bench:['Dónde estás','Tu espera','Tu reingreso','Mientras tanto','Quién defiende','Cuando saca tu equipo'],
+  lib:['Dónde estás','Recepción: tu base','Cobertura','Segunda bola','Defensa','Cuando saca tu equipo']})[gtype(r)];
+const STEP_SHORT=r=>({
+  set:['Dónde estás','Recepción','Target','Arma','Defensa','Saque'],
+  opp:['Dónde estás','Recepción','Cruce','Ataque','Defensa','Saque'],
+  cover:['Dónde estás','Recepción','Transición','Cobertura','Defensa','Saque'],
+  oh:['Dónde estás','Recepción','Aproximación','Ataque','Defensa','Saque'],
+  mb:['Dónde estás','Recepción','Cruce','Rápida','Defensa','Saque'],
+  bench:['Dónde estás','Espera','Reingreso','Mientras','Defensa','Saque'],
+  lib:['Dónde estás','Recepción','Cobertura','2ª bola','Defensa','Saque']})[gtype(r)];
+
+const ROLE_INTRO={
+ armador:{head:'el armador es el "cerebro" del equipo',warm:'arma a tus 3 tipos de atacante (punta, central, opuesto) con balón alto y rápido; ajusta la distancia a la red.',sig:'acuerdas con el central cómo pedir la rápida y con el punta cómo pedir el pipe.'},
+ opuesto:{head:'el opuesto es el arma principal por la derecha',warm:'ataca balones altos por zona 2 con tu armador (ritmo y distancia a la red) y practica el ataque de zaga desde zona 1.',sig:'acuerdas con el armador cómo pides la bola (alta, media o de zaga) y qué haces si el pase es malo.'},
+ punta:{head:'el punta recibe y ataca a la vez: es el jugador más completo',warm:'trabaja recepción de saque, aproximación por zona 4 y el pipe con tu armador.',sig:'acuerdas con el armador cuándo pides pipe y qué haces con el pase malo; repartes los carriles de recepción con el líbero.'},
+ central:{head:'el central es el bloqueador principal y el atacante más rápido',warm:'sincroniza la rápida con tu armador (distancia y timing) y calienta tus desplazamientos de bloqueo.',sig:'acuerdas con el armador las rápidas (delante o a la espalda) y cómo avisas tu lectura del bloqueo rival.'},
+ libero:{head:'el líbero es el especialista en recepción y defensa',warm:'recepción de saque, defensa y armado de emergencia con dedos desde detrás de la línea de 3 m.',sig:'acuerdas con los puntas los carriles de recepción y con el central el momento del cambio.'}
+};
+function diagLabel(){
+  const m=state.me;
+  if(m==='L') return '<label><input type="checkbox"><span><b>Tu relevo:</b> entras por el central en la fila trasera y cambias con balón muerto por la zona de reemplazo ('+art('19.3.2')+'). No sacas, no bloqueas y no remata sobre el borde de la red.</span></label>';
+  const who=(m==='A'||m==='OP')?(state.sys==='5-1'?(m==='A'?'el opuesto':'el armador'):'el otro armador'):m[0]==='E'?'el otro punta':'el otro central';
+  return '<label><input type="checkbox"><span><b>Tu diagonal:</b> '+who+' siempre está 3 posiciones de ti (zonas 1–4, 2–5 y 3–6).</span></label>';
+}
+function zoneBtns(r,id){
+  if(state.me==='L') return `<div class="zonebtns" id="${id}">${[1,2,3,4,5,6].map(k=>`<button data-r="${k}" aria-pressed="${k===r}">Rot. ${k}<small>Zona ${myZone(k)}</small></button>`).join('')}</div>`;
+  return `<div class="zonebtns" id="${id}">${[1,2,3,4,5,6].map(z=>`<button data-z="${z}" aria-pressed="${myZone(r)===z}">Zona ${z}<small>Rotación ${rotOfMyZone(z)}</small></button>`).join('')}</div>`;
+}
+const rotFromBtn=b=>b.dataset.r?+b.dataset.r:rotOfMyZone(+b.dataset.z);
+function saqueUL(r,tail){
+  const z=myZone(r),lu=lineup(r);
+  const first=(z===1&&state.me!=='L')?'<b>Sacas tú</b> desde detrás de la línea de fondo, zona derecha ('+art('12')+').':'Saca <b>'+NAME[lu[1]]+'</b> desde zona 1.';
+  return ul([first].concat(tail));
+}
+
+/* ---- Punta (OH) ---- */
+const OHREC={
+ 4:['Estás en zona 4: sal unos metros de la red (2–3 m) y recibe los saques del lado izquierdo y los cortos.','Plataforma frente al target (derecha, pegado a la red) y hombros orientados al armador.'],
+ 3:['Estás al centro de la red: da un paso atrás y recibe el carril central-izquierdo; el central no recibe.','Comunica con el líbero para repartir las bolas del medio.'],
+ 2:['Estás en zona 2: retrocede a ~3 m de la red y recibe el carril derecho; el pase va hacia dentro (izquierda), al target.','Cuidado con el armador que sale al target cerca de ti: no cortes su carrera.'],
+ 1:['Zaguero derecho: recibes el carril derecho y las bolas largas por esa banda.','Mantén tu posición detrás del jugador de zona 2 y a la derecha del de zona 6 al golpe del saque.'],
+ 6:['Zaguero central: eres el eje de la recepción junto al líbero; reparte las bolas con tus compañeros zagueros.','Mantén el hombro orientado al armador.'],
+ 5:['Zaguero izquierdo: recibes el carril izquierdo y las bolas largas por la izquierda.','Cierra el centro junto al líbero: el saque viene seguido a los pies.']
+};
+const OHTRANS={
+ 4:['Tras el pase, abre hacia la banda izquierda y retrocede 1–2 pasos para ganar espacio de carrera.','No te quedes pegado a la red: necesitas 3–4 m para tu aproximación.'],
+ 3:['Tras el pase, corre a zona 4 (izquierda) y vuelve a la línea de 3 m para tu carrera.','Si el pase fue malo, avisa a tu armador para que dé más altura.'],
+ 2:['Cruza hacia zona 4 por detrás del central y del armador, a 3–4 m de la red.','Es un cruce largo: sal en cuanto el pase sale hacia el armador.'],
+ 1:['Tras pasar, prepárate para el <b>pipe</b>: ubícate detrás de la línea de 3 m, por el centro.','Tu carrera es diagonal hacia la red; despega detrás de la línea de 3 m.'],
+ 6:['Tras pasar, avanza al centro detrás de la línea de 3 m: es tu zona natural de pipe.','Mira al armador y pide la bola con la voz.'],
+ 5:['Tras pasar, desplázate al centro, detrás de la línea de 3 m, para el pipe.','Si el pase es malo, no pidas pipe: prepárate para cubrir.']
+};
+const OHATK_F=['<b>Aproximación de 3–4 pasos</b> desde fuera de la banda, último paso largo y salto en diagonal hacia la red.','<b>Pase perfecto:</b> bola alta o media por zona 4. <b>Pase malo:</b> bola alta y segura (diagonal larga).','Lee el bloqueo: con 1 bloqueador, golpe fuerte; con 2, bola cruzada alta o toque al bloqueo (wipe).','No te quedes pegado a la red: la bola llega alta y de dentro hacia fuera.'];
+const OHATK_B=['<b>Pipe</b> (zona 6): pides la bola con la voz y despegas <b>detrás de la línea de 3 m</b>; puedes aterrizar delante ('+art('13.2.2')+').','Si pisas o cruzas la línea de 3 m al despegar, el remate es falta.','Con pase malo no pidas pipe: tu armador no tendrá tiempo.','Remata fuerte al fondo o a las zonas libres que deje el bloqueo.'];
+const OHDEF={
+ 4:['Bloqueas en zona 4 junto al central: cierra la diagonal y deja la línea a la defensa.','Tras bloquear, aterriza abierto y vuelve a tu carrera de ataque.'],
+ 3:['Bloqueas en el centro con tus compañeros de red: lee al armador rival.','Tras bloquear, desplázate a zona 4 para atacar.'],
+ 2:['Bloqueas en zona 2 contra el punta rival, su atacante más habitual.','Tras bloquear, cruza a zona 4 por detrás de tus compañeros.'],
+ 1:['Zaguero derecho: defiendes la diagonal larga (zona 1).','Un zaguero no puede completar un bloqueo ni participar en él ('+art('14.6.2')+').'],
+ 6:['Zaguero central: defiendes bolas largas y fintas por encima del bloqueo.','Sé el apoyo de los defensores de ambos lados.'],
+ 5:['Zaguero izquierdo: defiendes la línea larga y el tip por la izquierda.','Tras defender, prepara tu pipe: arranca por detrás de la línea de 3 m.']
+};
+function stepBodyOH(r,s){
+  const lu=lineup(r),z=myZone(r),f=isFront(z);
+  if(s===0) return `<p>Estás <b>${ZN[z]}</b> (zona ${z}). Eres <b>receptor principal</b> y atacas por la <b>izquierda</b> (zona 4); desde atrás, con el <b>pipe</b>.</p>${lineupTable(r)}`+
+    ul([`Tu diagonal es <b>${NAME[lu[OPP[z]]]}</b>, en zona ${OPP[z]}.`,`Fila delantera (4-3-2): ${frontRow(r).map(nm).join(' · ')}.`,f?'Estás en la red: tras recibir te vas a zona 4 a atacar.':'Estás atrás: tras recibir preparas el pipe.']);
+  if(s===1) return ul(OHREC[z].concat(COMMON.rec))+ruleCard(r)+'<p class="mut">Los círculos punteados marcan a quienes <b>reciben</b>.</p>';
+  if(s===2) return ul(OHTRANS[z])+`<div class="card warn"><b>Tu punto de arranque:</b> ${f?'zona 4, a 3–4 m de la red y cerca de la banda izquierda':'detrás de la línea de 3 m, por el centro (pipe)'}.</div>`;
+  if(s===3) return `<p>Tu armador llega al target y la bola te llega (flecha negra):</p>`+ul(f?OHATK_F:OHATK_B);
+  if(s===4) return ul(OHDEF[z]);
+  return saqueUL(r,['Al golpe del saque el equipo que saca puede ocupar <b>cualquier posición</b> ('+art('7.4')+'); después ve a tu defensa.']);
+}
+
+/* ---- Central (MB) ---- */
+const MBREC={4:'Estás a la izquierda de la red: prepárate a cruzar al centro.',3:'Estás en el centro: es tu zona natural.',2:'Estás a la derecha: prepárate a cruzar al centro por detrás del armador.'};
+const MBTRANS={
+ 4:['Cruza por la red hasta el centro (unos 3 m) mientras el pase viaja.','Frena con equilibrio en el centro, mirando al armador.'],
+ 3:['Ya estás en el centro: ajusta 1 paso hacia el armador y fija tu carrera.','Empieza la carrera cuando el pase sale hacia el armador, antes del toque.'],
+ 2:['Cruza unos 3 m hacia el centro, por detrás del armador que llega al target.','Frena con equilibrio y mira al armador.']
+};
+const MBATK=['<b>Rápida (1er tiempo)</b>: saltas antes de que el armador toque; la bola sube baja y a ~1 m de él.','Con pase perfecto: rápida delante o a la espalda según la señal.','Con pase malo no pidas rápida: pide bola alta o prepárate para bloquear y cubrir.','Aunque no te den la bola, <b>salta igual</b>: arrastras al bloqueo rival y liberas a tus compañeros.'];
+const MBDEF={
+ 4:['Bloqueas en zona 4 junto al punta: lee al armador rival y cierra el bloque.','Tras bloquear, vuelve rápido al centro.'],
+ 3:['Eres el bloqueador principal: sigue al armador rival y cierra la rápida; cierra hacia los lados cuando la bola va fuera.','Tras bloquear, apoya la cobertura y vuelve a tu posición de ataque.'],
+ 2:['Bloqueas en zona 2 junto al opuesto: cierra la diagonal.','Tras bloquear, cruza al centro por detrás.']
+};
+function stepBodyMB(r,s){
+  const lu=lineup(r),z=myZone(r),f=isFront(z);
+  if(!f){ // sin líbero: el central juega de zaguero
+    if(s===0) return `<p>Estás <b>${ZN[z]}</b> (zona ${z}) y <b>no hay líbero</b>: juegas como un zaguero más hasta rotar a la red.</p>${lineupTable(r)}`;
+    if(s===1) return ul(['Sin líbero, el central de fondo recibe y defiende como los demás zagueros: colócate en tu carril.'].concat(COMMON.rec))+ruleCard(r);
+    if(s===2) return ul(['Tras el pase, prepara tu entrada a la red: cuando rotes a zona 4 serás bloqueador.','Mantente fuera de la carrera del armador.']);
+    if(s===3) return ul(['Desde atrás no sueles atacar: tu ataque es la rápida en la red.','Un zaguero no puede completar un bloqueo ('+art('14.6.2')+').']);
+    if(s===4) return ul(DEFC[z]);
+    return saqueUL(r,['Tras el saque, ve a tu zona de defensa.']);
+  }
+  if(s===0) return `<p>Estás <b>${ZN[z]}</b> (zona ${z}). Eres el <b>bloqueador principal</b> y atacas la <b>rápida</b> junto al armador.</p>${lineupTable(r)}`+
+    ul([`Tu diagonal es <b>${NAME[lu[OPP[z]]]}</b>, en zona ${OPP[z]}.`,`Fila delantera (4-3-2): ${frontRow(r).map(nm).join(' · ')}.`,'En la fila trasera te sustituye el líbero (cuando uses líbero).']);
+  if(s===1) return ul([MBREC[z],'<b>No recibes</b>: el central se queda pegado a la red, fuera del pasillo de pase.','Observa el saque y al armador: tu carrera depende del pase.'].concat(COMMON.rec.slice(1)))+ruleCard(r);
+  if(s===2) return ul(MBTRANS[z])+'<div class="card warn"><b>Tu punto de arranque:</b> centro de la red, a ~1,5–2 m de la red y cerca del armador.</div>';
+  if(s===3) return `<p>Tu armador llega al target:</p>`+ul(MBATK);
+  if(s===4) return ul(MBDEF[z].concat(['Zagueros y líbero no pueden bloquear ('+art('14.6.2')+'): el bloqueo es tuyo y de tus compañeros de red.']));
+  return saqueUL(r,['Tras el saque ve a tu bloqueo; recuerda que el saque rival no se puede bloquear ('+art('14.6.3')+').']);
+}
+function stepBodyBench(r,s){
+  const lu=lineup(r),z=myZone(r),left={1:3,6:2,5:1}[z];
+  if(s===0) return `<p>Estás <b>${ZN[z]}</b> (zona ${z}): ${z===1?'<b>sacas tú</b> y, al terminar tu servicio, el líbero entra por ti.':'en esta rotación <b>juega el líbero por ti</b> en la fila trasera.'}</p>${lineupTable(r)}`+
+    ul(['El líbero puede reemplazar a cualquier jugador de la fila trasera ('+art('19.3.1.1')+').','Tú vuelves a jugar cuando rotes a zona 4 (fila delantera).']);
+  if(s===1) return ul([z===1?'Sacas y, terminado el servicio, sales por la <b>zona de reemplazo</b> (junto al banco, entre la línea de 3 m y la de fondo).':'Espera en la zona de reemplazo, atento al marcador y a la rotación.','Entras y sales sólo por esa zona ('+art('19.3.2.7')+').','Los cambios del líbero no cuentan como sustituciones ('+art('19.3.2.1')+').']);
+  if(s===2) return ul([`Faltan <b>${left}</b> rotación(es) para que vuelvas a zona 4.`,'El cambio se hace con el balón fuera de juego y <b>antes del silbato de saque</b> ('+art('19.3.2.4')+').','Debe haber una jugada completa entre dos cambios del líbero ('+art('19.3.2.1')+').','Calienta con balones y mueve las piernas: el reingreso es en frío.']);
+  if(s===3) return ul(['Mira el bloqueo rival y a su armador: detecta patrones y avisa al equipo.','Comunica desde fuera: quién saca, quién ataca más.','Repasa mentalmente tu rápida con el armador.']);
+  if(s===4) return ul(['Defiende el líbero por ti. Tu defensa empieza cuando vuelves a la red y bloqueas.','Revisa tus desplazamientos de bloqueo y la lectura del armador rival.']);
+  return saqueUL(r,[z===1?'Después de tu servicio, el líbero entra por ti (jugada completa mediante).':'Tu cambio se produce cuando rotes a zona 4.']);
+}
+
+/* ---- Líbero (L) ---- */
+const LREC={
+ 6:['Zona 6: eres el receptor central, el que más balones toma: reparte con los puntas.','Plataforma estable, hombros al target; llama "¡mía!" antes de moverte.'],
+ 5:['Zona 5: cubres el carril izquierdo y las bolas largas por la izquierda; comparte el centro con el punta.','Apóyate con el punta de zona 4 en los saques cortos.'],
+ 1:['Zona 1: cubres el carril derecho y las bolas largas por la derecha; comparte con el punta de zona 2.','Si el armador sale al target, no cortes su carrera.']
+};
+const LDEF={
+ 6:['Defiendes el centro y las bolas largas; eres el referente de comunicación del fondo.','Lee al atacante rival y avisa "línea" o "cruzada".'],
+ 5:['Defiendes la línea larga izquierda y el tip.','Cierra el hueco con el zaguero de zona 6.'],
+ 1:['Defiendes la diagonal larga derecha.','Prepárate para ir al target si el armador no llega.']
+};
+function stepBodyLib(r,s){
+  const lu=lineup(r),z=myZone(r);
+  if(s===0) return `<p>Estás <b>${ZN[z]}</b> (zona ${z}), fila trasera. Entras por el central (${NAME[lu[z]]}).</p>${lineupTable(r)}`+
+    ul(['Sólo juegas en la fila trasera; no puedes <b>sacar</b>, <b>bloquear ni intentar bloquear</b> ('+art('19.3.1.3')+').','No puedes rematar si el balón está por completo sobre el borde de la red, desde ningún sitio ('+art('19.3.1.2')+').','Uniforme de color dominante distinto al del equipo ('+art('19.2')+').']);
+  if(s===1) return ul(LREC[z].concat(COMMON.rec))+ruleCard(r)+'<p class="mut">Los círculos punteados marcan a quienes <b>reciben</b>.</p>';
+  if(s===2) return ul(['Tras el pase, ve a cobertura: colócate 2–3 m detrás del atacante.','Si el pase no llega al armador, eres su primer apoyo: llega y arma.','Recoge los balones que rebotan en el bloqueo rival.']);
+  if(s===3) return ul(['Puedes armar de dedos, pero <b>si lo haces dentro de tu zona de ataque</b> nadie podrá rematar esa bola por encima del borde de la red ('+art('19.3.1.4')+').','Por eso, arma de dedos <b>detrás de la línea de 3 m</b>: así tu compañero remata libremente.','Con antebrazos puedes armar desde cualquier lugar.']);
+  if(s===4) return ul(LDEF[z]);
+  return ul([lineup(r)[1][0]==='C'?'Saca el central (zona 1) y tú entras por él cuando termina su servicio.':'Saca <b>'+NAME[lineup(r)[1]]+'</b> desde zona 1.','Tú no puedes sacar ('+art('19.3.1.3')+').','Cambios: sin límite, con balón fuera de juego, antes del silbato y con una jugada completa entre dos cambios ('+art('19.3.2')+').']);
+}
+
+/* ---- Selector de sistema / rol (cabecera) ---- */
+const SYS_INFO={
+ '5-1':['1 armador','Diagonal al opuesto'],
+ '4-2':['2 armadores','Diagonal al otro armador','Arma el de la fila delantera'],
+ '6-2':['2 armadores','Diagonal al otro armador','Arma el de la fila trasera']
+};
+const ROLE_CHIPS={
+ opuesto:[['zap','1 opuesto'],['swap','Diagonal al armador'],['target','Ataca por zona 2']],
+ punta:[['arrow-up-right','2 puntas'],['swap','Diagonal: el otro punta'],['target','Recibe y ataca por zona 4']],
+ central:[['brick-wall','2 centrales'],['swap','Diagonal: el otro central'],['target','Quick y bloqueo']],
+ libero:[['shield','1 líbero'],['target','Sólo fila trasera'],['ban','No saca ni bloquea ni remata']]
+};
+function renderSys(){
+  let h='';
+  const rol=state.role;
+  if(rol!=='opuesto'){
+    h+=`<div class="sysrow"><span class="syslabel">Sistema</span>${['5-1','4-2','6-2'].map(s=>`<button class="chip" data-sys="${s}" aria-pressed="${state.sys===s}">${s}</button>`).join('')}</div>`;
+    if(rol==='armador'&&state.sys!=='5-1') h+=`<div class="sysrow"><span class="syslabel">Yo soy</span>${['S1','S2'].map(s=>`<button class="chip" data-sn="${s}" aria-pressed="${state.sn===s}">${ic('hand')}${s}</button>`).join('')}</div>`;
+    if(rol==='punta'||rol==='central'){const p=rol==='punta'?'OH':'MB';
+      h+=`<div class="sysrow"><span class="syslabel">Yo soy</span>${[1,2].map(n=>`<button class="chip" data-n="${n}" aria-pressed="${state.n===n}">${ic(rol==='punta'?'arrow-up-right':'brick-wall')}${p}${n}</button>`).join('')}</div>`;}
+  }
+  const chips=ROLE_CHIPS[rol]||SYS_INFO[state.sys].map((t,i)=>[['hand','swap','target'][i],t]);
+  h+=`<div class="sysrow">${chips.map((c,i)=>{const t=Array.isArray(c)?c[1]:c,ico=Array.isArray(c)?c[0]:'hand';return `<span class="chip ${i===0?'hi':''}">${ic(ico)}${t}</span>`;}).join('')}</div>`;
+  $('#sysArea').innerHTML=h;
+}
+
+/* ============ Guía general (reglamento FIVB 2025-2028) ============ */
+const ZD={
+ 1:'<b>Zona 1 · zaguero derecho.</b> Es la posición del <b>sacador</b>: sale a sacar desde la zona de saque, detrás de la línea de fondo.',
+ 2:'<b>Zona 2 · delantero derecho.</b> Ataca por la derecha. Al rotar pasa a la zona 1 y es quien saca.',
+ 3:'<b>Zona 3 · delantero centro.</b> Bloqueo central y ataque rápido.',
+ 4:'<b>Zona 4 · delantero izquierdo.</b> Ataque por la izquierda: el lado más habitual del punta.',
+ 5:'<b>Zona 5 · zaguero izquierdo.</b> Defiende la línea larga izquierda y las bolas cortas por ese lado.',
+ 6:'<b>Zona 6 · zaguero central.</b> Defiende el fondo y es el eje de la recepción.'
+};
+const LD={
+ fondo:'<b>Línea de fondo.</b> Cierra la cancha por detrás. Tras ella está la <b>zona de saque</b>, de 9 m de ancho ('+art('1.4.2')+'). Las líneas son parte de la cancha: si el balón toca la línea, está <b>dentro</b> ('+art('8.3')+').',
+ lateral:'<b>Líneas laterales.</b> Marcan el ancho de la cancha: 9 m. Las antenas de la red quedan sobre ellas ('+art('1.3.2')+'). Un balón que las toca está dentro.',
+ tres:'<b>Línea de ataque (3 m).</b> Su borde trasero está a 3 m del eje de la línea central y marca la <b>zona de ataque</b> ('+art('1.3.4')+'). Los zagueros no pueden despegar pisándola para rematar ('+art('13.2.2')+').',
+ centro:'<b>Línea central.</b> Va bajo la red y divide la cancha en dos de 9×9 m; pertenece a ambos campos ('+art('1.3.3')+'). Puedes tocar el campo rival con un pie si una parte del pie sigue sobre o encima de la línea y no estorbas ('+art('11.2.2')+').',
+ libre:'<b>Zona libre.</b> Rodea la cancha: mínimo 3 m (en competencias oficiales FIVB, 5 m a los lados y 6,5 m por detrás) ('+art('1.1')+'). El balón se puede jugar desde ella.'
+};
+const GDO=[
+ 'Comunica siempre: "mía", "tuya", "fuera", "dentro" y el nombre de quien juega.',
+ 'Llega al balón antes de que llegue: pies primero, manos después.',
+ 'Si recibes, ocupa tu posición correcta al golpe del saque ('+art('7.4')+').',
+ 'Mira al sacador y al armador: lee antes de moverte.',
+ 'Después de cada ataque, todos se colocan en cobertura detrás del atacante.',
+ 'Antes de cada jugada, confirma quién saca y en qué orden rotas.',
+ 'Celebra el punto y reinicia rápido: la siguiente jugada ya empezó.',
+ 'Juega el balón hasta el silbato: si "se pierde", insiste.'
+];
+const GDONT=[
+ 'No pises la línea de fondo ni la cancha al sacar ('+art('12.4.3')+').',
+ 'Si eres zaguero, no despegues pisando la línea de 3 m para rematar ('+art('13.2.2')+').',
+ 'No toques la red entre las antenas mientras juegas el balón ('+art('11.3.1')+').',
+ 'Zaguero o líbero: no bloquees ni intentes bloquear ('+art('14.6.2')+').',
+ 'No hagas pantalla al sacar: nada de agitar brazos o agruparse tapando el saque ('+art('12.5')+').',
+ 'No metas el pie completo en el campo rival ('+art('11.4.3')+').',
+ 'No cambies al líbero con la jugada en curso ni después del silbato ('+art('19.3.2')+').',
+ 'No saques fuera del orden de rotación ('+art('7.7')+').'
+];
+const GEN=[
+ {short:'Zonas',title:'Orden de las zonas y rotación',html:()=>`
+  <p>Cada lado tiene <b>6 posiciones</b> numeradas ${art('7.4.1')}. Toca una zona para verla en la cancha:</p>
+  <div class="zonebtns">${[1,2,3,4,5,6].map(z=>`<button data-gz="${z}" aria-pressed="${state.gz===z}">Zona ${z}</button>`).join('')}</div>
+  <div class="card rule">${ZD[state.gz]}</div>
+  ${ul(['Fila delantera, de izquierda a derecha: <b>4 · 3 · 2</b>. Fila trasera: <b>5 · 6 · 1</b>.',
+   'Cuando el equipo que recibe gana la jugada, gana el derecho a sacar y <b>rota un lugar en sentido horario</b>: 2 → 1 → 6 → 5 → 4 → 3 → 2 ('+art('7.6.2')+').',
+   'Saca quien pasa de la zona 2 a la zona 1 ('+art('12.2.2.2')+'). Si el que saca gana la jugada, sigue sacando el mismo ('+art('12.2.2.1')+').',
+   'El orden de saque lo fija la planilla de alineación y no cambia durante el set ('+art('12.2.1')+').'])}`},
+ {short:'Líneas',title:'Las líneas de la cancha',html:()=>`
+  <p>La cancha mide <b>18 × 9 m</b> (9 × 9 m por lado) y todas las líneas miden 5 cm ${art('1.1, 1.3')}. Toca una línea:</p>
+  <div class="zonebtns">${Object.keys(LD).map(k=>`<button data-gl="${k}" aria-pressed="${state.gl===k}">${LNAMES[k]}</button>`).join('')}</div>
+  <div class="card rule">${LD[state.gl]}</div>
+  ${ul(['La red mide <b>2,43 m</b> (hombres) o <b>2,24 m</b> (mujeres) ('+art('2.1.1')+').','Las líneas forman parte de la cancha: un balón que toca la línea está dentro ('+art('8.3')+').'])}`},
+ {short:'Saque',title:'El saque',html:()=>ul([
+   'Saca el jugador de <b>zona 1</b> desde la <b>zona de saque</b>: 9 m de ancho detrás de la línea de fondo ('+art('1.4.2')+', '+art('12')+').',
+   'Se golpea con una mano o cualquier parte del brazo, tras <b>un solo lanzamiento o suelta</b> del balón ('+art('12.4.1, 12.4.2')+').',
+   'Al golpear (o al despegar) no se puede pisar la cancha, la línea de fondo ni el suelo fuera de la zona de saque; después sí puedes caer dentro ('+art('12.4.3')+').',
+   'Tienes <b>8 segundos</b> desde el silbato para golpear; un saque antes del silbato se repite ('+art('12.4.4, 12.4.5')+').',
+   'El balón puede tocar la red: es falta si no cruza el plano de la red por el espacio de cruce, toca a un compañero o sale ('+art('12.6.2')+').',
+   '<b>Pantalla prohibida:</b> tu equipo no puede ocultar el saque agitando brazos, saltando, moviéndose de lado o agrupándose ('+art('12.5')+').',
+   'Al golpe del saque, <b>el equipo que saca puede estar en cualquier posición</b>; sólo el que recibe debe estar en su orden de rotación ('+art('7.4')+').',
+   'El primer saque del set 1 y del 5º set lo decide el sorteo; en los demás, saca primero el equipo que no sacó primero en el set anterior ('+art('12.1')+').',
+   'El <b>líbero no puede sacar</b> ('+art('19.3.1.3')+').'])},
+ {short:'Posiciones',title:'Posiciones, rotación y ataque de zaga',html:()=>ul([
+   'Al golpe del saque, el equipo que <b>recibe</b> debe estar en orden de rotación ('+art('7.4')+').',
+   '<b>Delante-detrás:</b> cada zaguero debe estar más lejos de la línea central que el delantero de su columna: 5 detrás de 4, 6 detrás de 3, 1 detrás de 2 ('+art('7.4.2.1')+').',
+   '<b>Lado a lado:</b> en cada fila se respeta el orden 4-3-2 y 5-6-1 ('+art('7.4.2.2')+').',
+   'Se controla por los <b>pies</b>: cuenta el último contacto con el suelo ('+art('7.4.3')+').',
+   'Después del golpe del saque, todos se mueven libremente ('+art('7.4.4')+').',
+   '<b>Falta de posición:</b> punto y saque para el rival ('+art('7.5.4')+'). <b>Falta de rotación</b> (sacar fuera de orden): punto y saque para el rival, y se anulan los puntos ganados desde la falta ('+art('7.7')+').',
+   '<b>Ataque de zaga:</b> el zaguero puede rematar desde detrás de la línea de 3 m, sin haberla tocado ni cruzado al despegar; puede caer delante ('+art('13.2.2')+'). También desde la zona de ataque si, al contacto, parte del balón está por debajo del borde de la red ('+art('13.2.3')+').',
+   '<b>Bloqueo:</b> zagueros y líbero no pueden completar un bloqueo ni participar en él ('+art('14.6.2')+').'])},
+ {short:'Juego',title:'Toques, red y bloqueo',html:()=>ul([
+   'Cada equipo tiene máximo <b>3 toques</b> (además del bloqueo); el 4º es falta ('+art('9.1, 9.3.1')+').',
+   'Nadie toca dos veces seguidas, salvo en el bloqueo o en el primer toque del equipo si ocurre en una sola acción ('+art('9.2.3, 9.3.4')+').',
+   'Vale cualquier parte del cuerpo, pero el balón no se puede retener ni lanzar ('+art('9.2, 9.3.3')+').',
+   '<b>Red:</b> tocarla entre las antenas durante la acción de jugar el balón es falta ('+art('11.3.1')+'); fuera de las antenas, o fuera de la acción, no ('+art('11.3.2')+').',
+   '<b>Pasar el pie:</b> se puede tocar el campo rival con el pie si una parte queda sobre o encima de la línea central; el pie completo es falta ('+art('11.2.2, 11.4.3')+').',
+   '<b>Bloqueo:</b> el toque de bloqueo no cuenta como toque del equipo; el siguiente toque puede darlo cualquiera, incluido el que bloqueó ('+art('14.4')+'). Sólo puedes tocar el balón al otro lado si no estorbas antes del ataque rival ('+art('11.1.1')+').',
+   'Nadie puede rematar un <b>saque rival</b> si el balón está en la zona de ataque y completamente por encima de la red ('+art('13.2.4')+').'])},
+ {short:'Puntos',title:'Puntos, cambios y líbero',html:()=>ul([
+   '<b>Punto por jugada:</b> se puntúa en cada jugada, saque o no ('+art('6.1')+').',
+   '<b>Set:</b> gana quien llega primero a 25 con 2 puntos de ventaja; si hay 24-24 se sigue ('+art('6.2')+'). <b>Partido:</b> gana quien gane 3 sets; el 5º se juega a 15, también con 2 de ventaja ('+art('6.3')+').',
+   'Se cambia de campo tras cada set; en el 5º, cuando el que va ganando llega a 8 puntos ('+art('18.2')+'). El descanso entre sets es de 3 minutos ('+art('18.1')+').',
+   'Por set: máximo <b>2 tiempos</b> de 30 segundos y <b>6 sustituciones</b> ('+art('15.1, 15.4.1')+').',
+   'Un titular puede salir una vez por set y volver una vez, sólo a su posición; el suplente entra una vez y sólo por ese titular ('+art('15.6')+').',
+   '<b>Líbero:</b> hasta 2 por equipo, con uniforme de color distinto ('+art('19.1, 19.2')+'). Reemplaza a cualquier jugador de fila trasera; cambios ilimitados pero con una jugada completa entre dos, con el balón fuera de juego y antes del silbato, por la zona de reemplazo ('+art('19.3.2')+').',
+   'El líbero no saca, no bloquea ni intenta bloquear, y no remata por encima del borde de la red ('+art('19.3.1')+'). Si arma de dedos en su zona de ataque, nadie puede rematar esa bola sobre el borde ('+art('19.3.1.4')+').'])},
+ {short:'Haz / No',title:'Qué hacer y qué no',html:()=>`<div class="dogrid">
+   <div class="card do"><h4>${ic('check')}Haz</h4>${ul(GDO)}</div>
+   <div class="card dont"><h4>${ic('ban')}No hagas</h4>${ul(GDONT)}</div></div>`}
+];
+const LNAMES={fondo:'Línea de fondo',lateral:'Laterales',tres:'Línea de 3 m',centro:'Línea central',libre:'Zona libre'};
+function genDraw(){
+  clearOv();
+  const s=state.gsec,ov=$('#ov');
+  const bub=(p,n,on)=>{el('circle',{cx:sx(p[0]),cy:sy(p[1]),r:19,fill:on?'#9F0043':'#0e1a1d',stroke:'#fff','stroke-width':3},ov);const t=el('text',{x:sx(p[0]),y:sy(p[1]),class:'zbub'},ov);t.textContent=n;};
+  const hl=(x1,y1,x2,y2)=>{el('line',{x1,y1,x2,y2,stroke:'#fff','stroke-width':11,'stroke-linecap':'round',opacity:.9},ov);el('line',{x1,y1,x2,y2,stroke:'#9F0043','stroke-width':6,'stroke-linecap':'round'},ov);};
+  if(s===3||s===6){show('base',1);}
+  else show(null,1);
+  if(s===0){
+    [[2,1],[1,6],[6,5],[5,4],[4,3],[3,2]].forEach(p=>arrow(BASE[p[0]],BASE[p[1]],'path'));
+    [1,2,3,4,5,6].forEach(z=>bub(BASE[z],z,z===state.gz));
+    mlabel(4.5,0.55,'FILA DELANTERA');mlabel(4.5,5.4,'FILA TRASERA');
+  }
+  if(s===1){
+    const k=state.gl;
+    if(k==='fondo')hl(40,410,400,410);
+    if(k==='lateral'){hl(40,50,40,410);hl(400,50,400,410);}
+    if(k==='tres'){hl(40,170,400,170);mlabel(4.5,1.6,'ZONA DE ATAQUE');mlabel(4.5,5.5,'ZONA DE DEFENSA');}
+    if(k==='centro'){hl(40,50,400,50);mlabel(4.5,0.9,'LÍNEA CENTRAL · BAJO LA RED');}
+    if(k==='libre'){el('rect',{x:6,y:6,width:428,height:458,fill:'none',stroke:'#fff','stroke-width':3,'stroke-dasharray':'8 6'},ov);mlabel(4.5,4.3,'ZONA LIBRE · MÍN. 3 M');}
+  }
+  if(s===2){
+    el('rect',{x:40,y:416,width:360,height:46,fill:'rgba(255,255,255,.22)',stroke:'#fff','stroke-width':2,'stroke-dasharray':'6 4'},ov);
+    mlabel(4.5,9.65,'ZONA DE SAQUE · 9 M');
+    arrow([8.0,9.7],[3.2,0.5],'path','saque');
+    bub([8.0,9.7],1,true);
+  }
+  if(s===3){
+    [[4,5],[3,6],[2,1]].forEach(p=>arrow(BASE[p[0]],BASE[p[1]],'set'));
+    mlabel(4.5,4.1,'ZAGUERO MÁS LEJOS DE LA RED');
+    mlabel(4.5,0.55,'ORDEN 4 · 3 · 2');mlabel(4.5,5.45,'ORDEN 5 · 6 · 1');
+  }
+  if(s===4){
+    const n=[[2.0,6.0],[6.5,1.2],[1.5,2.0]];
+    arrow(n[0],n[1],'path','pase');arrow(n[1],n[2],'path','armado');arrow(n[2],[2.6,0.2],'path');
+    n.forEach((p,i)=>bub(p,i+1,false));
+    mlabel(4.5,7.9,'MÁX. 3 TOQUES');
+  }
+  if(s===5){
+    const t=el('text',{x:sx(4.5),y:sy(4.0),class:'big'},ov);t.textContent='25';
+    mlabel(4.5,5.2,'CON 2 DE VENTAJA');mlabel(4.5,6.0,'5º SET: 15');
+  }
+}
+function renderGeneral(){
+  const s=state.gsec,g=GEN[s];
+  $('#panel').innerHTML=`
+  <h2>${ic('book')}Guía general</h2>
+  <p class="mut">Basada en el Reglamento Oficial de Voleibol FIVB 2025–2028. Los números indican el artículo.</p>
+  <div class="stepper" id="gsteps">${GEN.map((x,i)=>`<button data-s="${i}" aria-pressed="${i===s}" data-st="${i<s?'done':i===s?'cur':'todo'}"><span>${x.short}</span><em class="ubar"></em></button>`).join('')}</div>
+  <div class="card"><b>${g.title}</b></div>
+  <div>${g.html()}</div>
+  <div class="nav"><button class="btn" id="gprev" ${s===0?'disabled':''}>${ic('arrow-left')}Anterior</button><button class="btn primary" id="gnext" ${s===GEN.length-1?'disabled':''}>Siguiente${ic('arrow-right')}</button></div>`;
+  $('#gsteps').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.gsec=+b.dataset.s;renderGeneral();});
+  $('#gprev').onclick=()=>{state.gsec=Math.max(0,s-1);renderGeneral();};
+  $('#gnext').onclick=()=>{state.gsec=Math.min(GEN.length-1,s+1);renderGeneral();};
+  document.querySelectorAll('[data-gz]').forEach(b=>b.onclick=()=>{state.gz=+b.dataset.gz;renderGeneral();});
+  document.querySelectorAll('[data-gl]').forEach(b=>b.onclick=()=>{state.gl=b.dataset.gl;renderGeneral();});
+  genDraw();
+}
+
+/* ============ Prueba para punta / central / líbero ============ */
+function buildQuizOther(){
+  const L=[],role=state.role,mz=myZone;
+  const RL=[1,2,3,4,5,6].filter(r=>gtype(r)!=='bench');
+  const pick=()=>RL[Math.floor(Math.random()*RL.length)];
+  const pickN=n=>shuffle(RL).slice(0,n);
+  // rotación
+  if(role==='libero'){
+    L.push(mc('¿Cuándo debes salir de la cancha como líbero?','Cuando el central al que reemplazas rotaría a la fila delantera (zona 4)',['Cuando el rival saca','Cuando tu equipo pierde un punto','Nunca, juegas todo el set'],'El líbero sólo juega en la fila trasera ('+'art. 19.3.1.2'+'): sale cuando quien reemplaza rotaría a zona 4.'));
+  } else {
+    const r0=pick(),z=mz(r0),nz=ZONES[ZONES.indexOf(z)+1]||ZONES[0];
+    L.push(mc(`Estás de ${ME_NAME()} en <b>zona ${z}</b> y tu equipo recupera el saque (side-out). ¿A qué zona rotas?`,'Zona '+nz,[1,2,3,4,5,6].filter(x=>x!==nz).map(x=>'Zona '+x),
+      `Se rota 1 lugar en sentido horario (art. 7.6.2): 1, 6, 5, 4, 3, 2 y otra vez 1. Desde zona ${z} pasas a la zona ${nz}.`,r0));
+  }
+  // qué haces
+  {const r=pick(),z=mz(r),f=isFront(z);
+   if(role==='punta'){const a=f?'Por zona 4, con aproximación desde fuera':'Con un pipe, despegando detrás de la línea de 3 m',b=f?'Con un pipe, despegando detrás de la línea de 3 m':'Por zona 4, con aproximación desde fuera';
+     L.push(mc(`Estás en <b>zona ${z}</b>. ¿Cómo atacas en esta rotación?`,a,[b,'Con una rápida junto al armador','No atacas, sólo defiendes'],f?'En la red el punta ataca por la izquierda tras recibir.':'Desde atrás el punta ataca el pipe: despega detrás de la línea de 3 m (art. 13.2.2).',r));}
+   else if(role==='central'){const a=f?'Rápida (1er tiempo) junto al armador':'No atacas: defiendes como zaguero y preparas tu entrada a la red';
+     L.push(mc(`Estás en <b>zona ${z}</b>. ¿Qué haces tras el saque?`,a,[f?'Pipe de fondo por zona 6':'Rápida junto al armador','Bola alta por zona 4','Armo de segunda'],f?'El central ataca la rápida junto al armador.':'Sin líbero, el central de fondo defiende y se prepara para entrar a la red.',r));}
+   else L.push(mc(`Estás en <b>zona ${z}</b> y el pase sale hacia el armador. ¿Qué haces?`,'Voy a cobertura detrás del atacante',['Salto a rematar la bola','Salgo a bloquear','Voy a sacar'],'El líbero cubre al atacante y recoge los rebotes del bloqueo; no remata, no bloquea y no saca.',r));}
+  // reglas de posición
+  pickN(2).forEach(r=>{const z=mz(r);
+    L.push(mc(`El rival va a sacar y estás en <b>zona ${z}</b>. ¿Cómo debes colocarte respecto a tus compañeros?`,RULEZ[z],Object.keys(RULEZ).filter(k=>+k!==z).map(k=>RULEZ[k]),'Regla de posiciones para la zona '+z+' (art. 7.4): '+RULEZ[z],r));});
+  // clic en recepción
+  pickN(2).forEach(r=>L.push({type:'click',kind:'rec',r,q:`El rival va a sacar. Estás en <b>zona ${mz(r)}</b>. <b>Toca en la cancha</b> dónde te colocas (verás a tus compañeros ya puestos).`}));
+  // clic en punto clave
+  if(role==='punta')L.push({type:'click',kind:'pt',target:[1.4,2.1],tol:1.5,q:'Toca tu <b>punto de arranque</b> para atacar por la izquierda (zona 4).',expl:'El punta arranca desde fuera de la banda izquierda, a 2–3 m de la red.'});
+  else if(role==='central')L.push({type:'click',kind:'pt',target:[4.4,1.9],tol:1.4,q:'Toca dónde atacas la <b>rápida</b> (junto al armador, hacia el centro).',expl:'La rápida del central se ataca en el centro, pegada a la red.'});
+  else L.push({type:'click',kind:'pt',target:[4.5,6.7],tol:1.8,q:'Toca dónde te colocas en <b>cobertura</b>, detrás de los atacantes.',expl:'El líbero cubre 2–3 m detrás del atacante, en el fondo central.'});
+  // conceptuales
+  const P={
+   punta:[
+    mc('¿Quiénes son los receptores principales en el 5-1?','Los puntas y el líbero',['El central y el opuesto','Sólo el armador','Sólo el opuesto'],'Puntas y líbero reciben; central y opuesto se esconden del pasillo de pase.'),
+    mc('Atacas el pipe desde atrás. ¿Dónde debes despegar?','Detrás de la línea de 3 m',['Pisando la línea de 3 m','Delante de la línea de 3 m','Detrás de la línea de fondo'],'El zaguero despega sin tocar ni cruzar la línea de 3 m; puede caer delante (art. 13.2.2).'),
+    mc('El pase es malo y vas a atacar. ¿Qué eliges?','Ataque seguro: bola alta, diagonal larga o toque al bloqueo',['Pegarle lo más fuerte posible sin mirar','Pedir la rápida','Dejarla pasar'],'Con bola difícil asegura el ataque.'),
+    mc('¿Por qué zona de la red ataca el punta?','Por zona 4 (izquierda)',['Por zona 2 (derecha)','Sólo por el centro','Sólo de zaga'],'El punta ataca por la izquierda; el opuesto, por la derecha.'),
+    mc('¿Cuándo empiezas tu carrera de ataque tras recibir?','Cuando el pase sale hacia el armador',['Antes del saque','Cuando el armador ya tocó','Cuando el rival remata'],'Empieza la aproximación mientras el balón viaja al armador.'),
+    mc('¿Quién está en tu diagonal (3 posiciones de ti)?','El otro punta',['El armador','El central','El líbero'],'Los dos puntas están siempre en diagonal.')],
+   central:[
+    mc('¿Cuál es tu ataque principal?','La rápida (1er tiempo) junto al armador',['Bola alta por zona 4','Zaga por zona 1','Pipe por zona 6'],'El central ataca rápido, pegado al armador.'),
+    mc('¿Cuándo empiezas la carrera de la rápida?','Antes de que el armador toque el balón',['Después de que el armador toque','Cuando el rival remata','Cuando el líbero pasa a la banda'],'La rápida se salta antes del toque del armador.'),
+    mc('Pase malo, lejos de la red. ¿Qué haces?','No pido rápida: me preparo para bloquear y cubrir',['Pido la rápida igual','Corro a zona 4 a atacar','Me quedo quieto'],'Con pase malo el armador no tiene tiempo para la rápida.'),
+    mc('¿Recibes saque normalmente?','No: el central se queda pegado a la red',['Sí, siempre','Sólo en zona 1','Sólo en zona 6'],'Reciben puntas y líbero; el central se prepara para atacar.'),
+    mc('¿Quién te sustituye en la fila trasera?','El líbero',['El armador','El opuesto','Nadie, juegas siempre'],'El líbero puede reemplazar a cualquier jugador de fila trasera (art. 19.3.1.1).'),
+    mc('¿Quién bloquea en el equipo?','Sólo los delanteros; zagueros y líbero no pueden',['Cualquiera','Sólo el central','Sólo el opuesto'],'Un zaguero o el líbero que bloquea comete falta (art. 14.6.2).')],
+   libero:[
+    mc('¿Puede el líbero rematar por encima del borde de la red?','No, desde ningún sitio',['Sí, siempre','Sólo en zona 2','Sólo con pase malo'],'El líbero no puede completar un remate con el balón por completo sobre el borde de la red (art. 19.3.1.2).'),
+    mc('El líbero arma de dedos dentro de su zona de ataque. ¿Qué pasa?','Nadie puede rematar esa bola por encima del borde de la red',['Nada, es normal','Es falta del líbero','Pierde el saque'],'Por eso se arma de dedos detrás de la línea de 3 m (art. 19.3.1.4).'),
+    mc('¿Cuándo se hace el cambio del líbero?','Con balón fuera de juego y antes del silbato de saque',['En plena jugada','Sólo al final del set','Después del silbato'],'Art. 19.3.2.4. Además debe haber una jugada completa entre dos cambios.'),
+    mc('¿En qué fila juega el líbero?','Sólo en la fila trasera',['En cualquiera','Sólo en la delantera','Sólo en zona 6'],'Está restringido a jugar como zaguero (art. 19.3.1.2).'),
+    mc('¿Puede el líbero sacar o bloquear?','No: ni sacar, ni bloquear, ni intentar bloquear',['Sí, ambos','Sólo sacar','Sólo bloquear'],'Art. 19.3.1.3.'),
+    mc('¿Por dónde entra y sale el líbero?','Por la zona de reemplazo del líbero, junto al banco',['Por cualquier lado','Por detrás de la línea de fondo','Por la zona de saque'],'Art. 19.3.2.7.')]
+  };
+  shuffle(P[role]).slice(0,2).concat(shuffle(GENQ()).slice(0,1)).forEach(q=>L.push(q));
+  return shuffle(L);
+}
+
+/* ============ Extensiones: Jugada · ¿Es legal? · Táctica ============ */
+state.play={on:false,i:0,q:3,speed:1,timer:null,rcv:'auto'};
+state.lg={mode:'drag',pos:null,r:null,score:0,total:0,ch:null,ans:null,els:{}};
+state.tact=0;state.defv='per';state.gloss='';
+const Jn=a=>a.length>1?a.slice(0,-1).join(', ')+' y '+a[a.length-1]:a.join('');
+function bubble(x,y,txt,on){
+  const ov=$('#ov');
+  el('circle',{cx:sx(x),cy:sy(y),r:17,fill:on?'#9F0043':'#0e1a1d',stroke:'#fff','stroke-width':3},ov);
+  const t=el('text',{x:sx(x),y:sy(y),class:'zbub'},ov);t.textContent=txt;
+}
+
+/* ---------- Jugada (reproducir) ---------- */
+function setBall(x,y,opts){
+  opts=opts||{};const b=$('#ball');if(!b)return;
+  if(opts.hide){b.style.opacity=0;return;}
+  if(opts.instant){const old=b.style.transition;b.style.transition='none';b.style.transform=`translate(${sx(x)}px,${sy(y)}px)`;b.style.opacity=1;void b.getBoundingClientRect();b.style.transition=old;}
+  else{b.style.transform=`translate(${sx(x)}px,${sy(y)}px)`;b.style.opacity=1;}
+}
+function stopPlay(){const P=state.play;if(P.timer){clearTimeout(P.timer);P.timer=null;}P.on=false;}
+function recvInfo(r){
+  let best=null;
+  formation(r,'rec').forEach(p=>{const role=dispRole(p.role,p.zone);
+    if(role==='L'||(role[0]==='E'&&!best)){if(!best||role==='L')best={role,x:p.x,y:p.y};}});
+  return best;
+}
+function playPlan(r){
+  const lu=lineup(r),front=[4,3,2].map(z=>lu[z]),mb=front.find(x=>x[0]==='C'),ohF=front.find(x=>x[0]==='E');
+  const X=state.play.rcv==='X',tgt=(!X&&state.play.q===3)?mb:ohF,tz=ZONES.find(z=>lu[z]===tgt);
+  const recv=X?[LABEL.OP]:formation(r,'rec').map(p=>dispRole(p.role,p.zone)).filter(x=>x==='L'||x[0]==='E').map(x=>LABEL[x]);
+  const xi=(()=>{const p=formation(r,'rec').find(p=>p.role==='OP');return {role:'OP',x:p.x,y:Math.max(p.y,3.8)};})();
+  return {lu,tgt,X,rcv:X?xi:recvInfo(r),T2:attackPos(tgt,tz,r),recv};
+}
+function playCap(i,r,pl){
+  if(pl.X){const t=LABEL[pl.tgt],o=LABEL.OP;return [`Rotación ${r}: así empieza la jugada. El rival va a sacar.`,`Plan B: el saque cae en ${o}, que normalmente no recibe. Grita "¡mía!" y pasa alto al target.`,'Pase alto al target: el armador llega y los atacantes ajustan a bola alta.',`Bola alta a ${t} por zona 4: sin quick ni pipe.`,`${t} remata la alta; ${o}, que recibió, se reubica y cubre.`,'Si el rival devuelve la bola: cobertura, defensa y de nuevo a la transición.'][i];}
+  return playCapBase(i,r,pl);
+}
+function playCapBase(i,r,pl){
+  const q=state.play.q,t=LABEL[pl.tgt];
+  return [
+   `Rotación ${r}: así empieza la jugada. El rival va a sacar.`,
+   `Recepción: reciben ${Jn(pl.recv)}. El resto se esconde del pasillo de pase.`,
+   'El pase viaja al target. El armador llega antes que el balón y los atacantes salen a su arranque.',
+   q===3?`Pase perfecto: quick a ${t}.`:q===2?`Pase regular: alta a ${t} por zona 4.`:`Pase malo: alta y segura a ${t} por zona 4.`,
+   `Ataque: ${t} remata${q===3?' la quick':' por zona 4'} y el resto cubre.`,
+   'Si el rival devuelve la bola: cobertura, defensa y de nuevo a la transición.'][i];
+}
+function playFrame(i){
+  const r=state.rot,P=state.play,pl=playPlan(r);
+  P.i=i;clearOv();
+  const map=show(['base','rec','att','att','att','def'][i],r,(i===1&&pl.X)?{override:{OP:[pl.rcv.x,pl.rcv.y]}}:undefined);
+  const rc=pl.rcv,TT=pl.T2;
+  if(i===0)setBall(0,0,{hide:true});
+  if(i===1){setBall(5.2,-1.0,{instant:true});setTimeout(()=>setBall(rc.x,rc.y),80);
+    (pl.X?['OP']:['E1','E2','L']).forEach(x=>{const p=map[x];if(p)el('circle',{cx:sx(p.x),cy:sy(p.y),r:25,class:'recring'},$('#ov'));});}
+  if(i===2){setBall(rc.x,rc.y,{instant:true});setTimeout(()=>setBall(T[0],T[1]),80);arrow([rc.x,rc.y],T,'path','pase');}
+  if(i===3){setBall(T[0],T[1],{instant:true});setTimeout(()=>setBall(TT[0],TT[1]),80);arrow(T,TT,'set',(P.q===3&&!pl.X)?'Quick':'Alta');}
+  if(i===4){setBall(TT[0],TT[1],{instant:true});setTimeout(()=>setBall(TT[0],-1.0),80);}
+  if(i===5)setBall(0,0,{hide:true});
+  P.cap=playCap(i,r,pl);
+}
+function updatePlayUI(){
+  const P=state.play,c=$('#pcap');if(c)c.innerHTML=`<b>${P.i+1} · ${PLAY_LABELS[P.i]}</b><br>${P.cap}`;
+  const st=$('#plsteps');if(st)[...st.children].forEach((b,k)=>{b.setAttribute('aria-pressed',String(k===P.i));b.dataset.st=k<P.i?'done':k===P.i?'cur':'todo';});
+  const pb=$('#pplay');if(pb)pb.innerHTML=P.on?ic('pause')+'Pausar':ic('play')+(P.i>=5?'Repetir':'Reproducir');
+}
+const PLAY_LABELS=['Alineación','Recepción','Pase','Armado','Ataque','Defensa'];
+function playTick(){
+  const P=state.play;if(!P.on)return;
+  if(P.i>=5){P.on=false;P.timer=null;updatePlayUI();return;}
+  playFrame(P.i+1);updatePlayUI();
+  P.timer=setTimeout(playTick,3300/P.speed);
+}
+function renderPlay(){
+  const r=state.rot,P=state.play;
+  $('#panel').innerHTML=`<h2>${ic('play')}Jugada</h2>
+  <p class="mut">Mira una jugada completa de tu rotación: recepción, pase, armado, ataque y defensa.</p>
+  ${zoneBtns(r,'plsel')}
+  <div class="seg" id="plq">${[[3,'Pase 3 · perfecto'],[2,'Pase 2 · regular'],[1,'Pase 1 · malo']].map(x=>`<button data-q="${x[0]}" aria-pressed="${P.q===x[0]}">${x[1]}</button>`).join('')}</div>
+  <div class="seg" id="plx"><button data-x="auto" aria-pressed="${P.rcv==='auto'}">Recibe el habitual</button><button data-x="X" aria-pressed="${P.rcv==='X'}">Plan B: recibe otro</button></div>
+  <div class="stepper" id="plsteps">${PLAY_LABELS.map((x,k)=>`<button data-s="${k}" aria-pressed="false" data-st="todo"><span>${x}</span><em class="ubar"></em></button>`).join('')}</div>
+  <div class="card" id="pcap"></div>
+  <div class="nav"><button class="btn" id="pprev">${ic('arrow-left')}Anterior</button><button class="btn primary" id="pplay"></button><button class="btn" id="pnext">Siguiente${ic('arrow-right')}</button></div>
+  <div class="seg"><button data-sp="1" aria-pressed="${P.speed===1}">Velocidad normal</button><button data-sp="0.5" aria-pressed="${P.speed===0.5}">Lenta</button></div>`;
+  $('#plsel').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;stopPlay();state.rot=rotFromBtn(b);P.i=0;renderPlay();});
+  $('#plx').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;stopPlay();P.rcv=b.dataset.x;renderPlay();});
+  $('#plq').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;stopPlay();P.q=+b.dataset.q;renderPlay();});
+  $('#plsteps').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;stopPlay();playFrame(+b.dataset.s);updatePlayUI();});
+  $('#pprev').onclick=()=>{stopPlay();playFrame(Math.max(0,P.i-1));updatePlayUI();};
+  $('#pnext').onclick=()=>{stopPlay();playFrame(Math.min(5,P.i+1));updatePlayUI();};
+  $('#pplay').onclick=()=>{
+    if(P.on){stopPlay();updatePlayUI();return;}
+    if(P.i>=5)playFrame(0);
+    P.on=true;updatePlayUI();P.timer=setTimeout(playTick,2200/P.speed);};
+  document.querySelectorAll('[data-sp]').forEach(b=>b.onclick=()=>{P.speed=+b.dataset.sp;document.querySelectorAll('[data-sp]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));});
+  playFrame(P.i);updatePlayUI();
+}
+
+/* ---------- ¿Es legal? ---------- */
+const LGV=[[4,5],[3,6],[2,1]],LGH=[[4,3],[3,2],[5,6],[6,1]];
+function legalIssues(pos,r){
+  const lu=lineup(r),out=[],tag=z=>`zona ${z} (${LABEL[dispRole(lu[z],z)]})`;
+  LGV.forEach(p=>{if(pos[p[1]][1]<pos[p[0]][1]-0.01)out.push({zs:p,msg:`La ${tag(p[1])} debe estar más lejos de la red que la ${tag(p[0])} (art. 7.4.2.1).`});});
+  LGH.forEach(p=>{if(pos[p[0]][0]>pos[p[1]][0]+0.01)out.push({zs:p,msg:`La ${tag(p[0])} debe quedar a la izquierda de la ${tag(p[1])} (art. 7.4.2.2).`});});
+  [1,2,3,4,5,6].forEach(z=>{const p=pos[z];if(p[0]<0||p[0]>9||p[1]<0||p[1]>9)out.push({zs:[z],msg:`La ${tag(z)} está fuera de tu cancha (art. 7.4).`});});
+  return out;
+}
+const basePos=r=>{const p={};ZONES.forEach(z=>p[z]=REC[cr(r)][z].slice());return p;};
+function mkPos(r,illegal){
+  let pos,t=0;
+  do{pos={};ZONES.forEach(z=>{const b=REC[cr(r)][z];pos[z]=[b[0]+(Math.random()-.5)*0.6,b[1]+(Math.random()-.5)*0.6];});t++;}while(legalIssues(pos,r).length&&t<50);
+  if(!illegal)return pos;
+  const tryIll=()=>{
+    if(Math.random()<.55){const p=LGV[Math.floor(Math.random()*3)];pos[p[1]][1]=Math.max(0.5,pos[p[0]][1]-(0.5+Math.random()*0.9));}
+    else{const p=LGH[Math.floor(Math.random()*4)];pos[p[0]][0]=Math.min(8.6,pos[p[1]][0]+(0.5+Math.random()*0.8));}
+  };
+  let k=0;do{tryIll();k++;}while(!legalIssues(pos,r).length&&k<10);
+  return pos;
+}
+function lgStatus(issues,show){
+  if(!issues.length)return `<div class="card do"><b>${ic('check')} Posición legal</b><br><span class="mut">Cumple las reglas de posición al golpe del saque (art. 7.4).</span></div>`;
+  return `<div class="card dont"><b>${ic('x')} Falta de posición</b> <span class="mut">(punto y saque para el rival, art. 7.5.4)</span>${ul(issues.map(i=>i.msg))}</div>`;
+}
+function lgUpdate(pos){
+  const G=state.lg,r=state.rot,iss=legalIssues(pos,r),bad={};
+  iss.forEach(i=>i.zs.forEach(z=>bad[z]=1));
+  Object.keys(G.els).forEach(z=>G.els[z].classList.toggle('bad',!!bad[z]));
+  const st=$('#lgstat');if(st&&G.mode==='drag')st.innerHTML=lgStatus(iss);
+  return iss;
+}
+function lgBuild(pos,draggable){
+  const G=state.lg,r=state.rot,lu=lineup(r);
+  clearOv();show(null,r);G.els={};
+  const svg=$('#court');if(svg&&svg.classList)svg.classList.toggle('drag',draggable);
+  ZONES.forEach(z=>{
+    const role=dispRole(lu[z],z),p=pos[z];
+    const g=el('g',{class:'dtok r-'+role+(role===state.me?' me':'')+(draggable?' grab':'')},$('#ov'));
+    g.style.transform=`translate(${sx(p[0])}px,${sy(p[1])}px)`;
+    g.innerHTML=`<g class="tk"><polygon class="tri" points="-6,-26 6,-26 0,-37"/><circle class="ring" r="22"/><circle class="halo" r="27"/><circle class="body" r="19"/><text class="lbl">${LABEL[role]}</text></g>`;
+    G.els[z]=g;
+    if(draggable){
+      g.addEventListener('pointerdown',e=>{e.preventDefault();g._drag=true;if(g.setPointerCapture)g.setPointerCapture(e.pointerId);});
+      g.addEventListener('pointermove',e=>{if(!g._drag)return;const m=evtToM(e),x=Math.max(0.3,Math.min(8.7,m[0])),y=Math.max(0.3,Math.min(8.7,m[1]));
+        pos[z]=[x,y];g.style.transform=`translate(${sx(x)}px,${sy(y)}px)`;lgUpdate(pos);});
+      const end=()=>{g._drag=false;};
+      g.addEventListener('pointerup',end);g.addEventListener('pointercancel',end);
+    }
+  });
+}
+function renderLegal(){
+  const G=state.lg,r=state.rot,drag=G.mode==='drag';
+  if(G.r!==r||!G.pos){G.r=r;G.pos=basePos(r);G.ch=null;G.ans=null;}
+  let body;
+  if(drag) body=`<p>Arrastra a los jugadores con el dedo o el mouse. La página te dice <b>al instante</b> si la posición sería legal si el rival saca ahora.</p><div id="lgstat"></div>
+    <div class="nav"><button class="btn" id="lgreset">${ic('rotate')}Restablecer</button><span></span></div>`;
+  else{
+    if(!G.ch)G.ch={pos:mkPos(r,Math.random()<.5)};
+    const iss=legalIssues(G.ch.pos,r),ill=iss.length>0;
+    body=`<div class="card"><b>Desafío ${G.total+(G.ans?0:1)}</b> · Rotación ${r}. El rival va a sacar. ¿Esta posición de tu equipo es legal?</div>
+     <div class="seg" id="lgans"><button data-a="1" ${G.ans?'disabled':''}>${ic('check')}Es legal</button><button data-a="0" ${G.ans?'disabled':''}>${ic('x')}Es falta</button></div>
+     <div id="lgstat">${G.ans?`<div class="fb"><b>${(G.ans==='1')===!ill?'¡Correcto!':'No exactamente.'}</b></div>`+lgStatus(iss):''}</div>
+     <p class="mut">Aciertos: ${G.score} de ${G.total}</p>
+     <div class="nav"><button class="btn primary" id="lgnew">${ic('rotate')}${G.ans?'Siguiente desafío':'Otro desafío'}</button><span></span></div>`;
+  }
+  $('#panel').innerHTML=`<h2>${ic('check')}¿Es legal?</h2>
+  <p class="mut">Al golpe del saque, el equipo que <b>recibe</b> debe respetar su orden de rotación ${art('7.4')}. Pruébalo tú mismo.</p>
+  ${zoneBtns(r,'lgsel')}
+  <div class="seg" id="lgmode"><button data-m="drag" aria-pressed="${drag}">Arrastrar</button><button data-m="ch" aria-pressed="${!drag}">Desafío</button></div>
+  ${body}`;
+  $('#lgsel').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.rot=rotFromBtn(b);G.pos=null;G.ch=null;G.ans=null;renderLegal();});
+  $('#lgmode').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;G.mode=b.dataset.m;G.ans=null;G.ch=null;renderLegal();});
+  if(drag){lgBuild(G.pos,true);lgUpdate(G.pos);$('#lgreset').onclick=()=>{G.pos=basePos(r);renderLegal();};}
+  else{
+    lgBuild(G.ch.pos,false);
+    if(G.ans)lgUpdate(G.ch.pos);
+    const a=$('#lgans');
+    if(a)a.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||G.ans)return;
+      const ill=legalIssues(G.ch.pos,r).length>0;G.ans=b.dataset.a;G.total++;if((G.ans==='1')===!ill)G.score++;renderLegal();});
+    $('#lgnew').onclick=()=>{G.ch={pos:mkPos(r,Math.random()<.5)};G.ans=null;renderLegal();};
+  }
+}
+
+/* ---------- Táctica ---------- */
+const TACT=['Defensa','Transición','Cobertura','Saque','Recepción','Glosario'];
+const GLOSS=[
+ ['Armado','Segundo toque del equipo: el armador coloca la bola para que un compañero ataque.'],
+ ['Target','Zona donde el armador recibe el pase: cerca de la red, entre las zonas 2 y 3.'],
+ ['Penetración','Carrera del armador de la fila trasera hasta el target.'],
+ ['Quick (rápida, 1er tiempo)','Ataque rápido del central: salta antes de que el armador toque, con bola baja y cerca de él.'],
+ ['Pipe','Ataque de zaga del punta por el centro (zona 6), despegando detrás de la línea de 3 m.'],
+ ['Alta','Bola alta hacia fuera (zona 4 o zona 2): la jugada más segura con pase malo.'],
+ ['Colocación atrás','Armado hacia atrás (de espaldas), normalmente al opuesto por zona 2.'],
+ ['Zaga','Ataque de un jugador de la zona de defensa, despegando detrás de la línea de 3 m.'],
+ ['Finta (tip)','Toque suave por encima o al lado del bloqueo en vez de un remate fuerte.'],
+ ['Toque al bloqueo (wipe)','Golpear la mano del bloqueo para que la bola salga fuera.'],
+ ['Bloqueo / doble bloqueo','Acción de los delanteros junto a la red para interceptar el remate; el doble lo hacen dos jugadores a la vez.'],
+ ['Cobertura','Jugadores detrás del atacante, en semicírculo, para recoger los rebotes del bloqueo rival.'],
+ ['Transición','Paso de defender a atacar.'],
+ ['Side-out','Ganar la jugada cuando recibes: recuperas el saque y rotas.'],
+ ['Rotación','Cambio de posiciones en sentido horario al recuperar el saque.'],
+ ['Solapamiento','Relación de posiciones (delante-detrás y lado a lado) que debe respetar el equipo que recibe al golpe del saque.'],
+ ['Falta de posición','Estar mal colocado al golpe del saque: punto y saque para el rival.'],
+ ['Falta de rotación','Sacar fuera del orden de la planilla: punto y saque para el rival.'],
+ ['Pase 3 / 2 / 1','Calidad de la recepción: 3 perfecta (al target), 2 regular, 1 mala (lejos de la red).'],
+ ['Free ball (bola libre)','Bola fácil que el rival devuelve sin atacar; se recibe con una formación tranquila.'],
+ ['Saque flotante','Saque sin rotación cuya trayectoria es errática.'],
+ ['Saque en salto','Saque con carrera y salto, con más potencia y más riesgo.'],
+ ['Línea de 3 m','Línea de ataque: separa la zona de ataque de la de defensa.'],
+ ['Zona de ataque / defensa','Delante o detrás de la línea de 3 m, en cada lado de la cancha.'],
+ ['Armador (S)','Coloca la bola para los atacantes; en el 5-1 es el único armador.'],
+ ['Opuesto (OPP)','Atacante de la derecha; en diagonal al armador.'],
+ ['Punta (OH)','Recibe y ataca por la izquierda; también el pipe.'],
+ ['Central (MB)','Quick y bloqueo principal.'],
+ ['Líbero (L)','Especialista defensivo: recibe y defiende desde la fila trasera, no saca ni bloquea.']
+];
+function saqueSVG(){
+  const z=(x,y,w,h,t,c)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${c||'rgba(255,255,255,.08)'}" stroke="#fff" stroke-width="2"/><text x="${x+w/2}" y="${y+h/2}" class="zbub" style="font-size:28px;fill:rgba(255,255,255,.7)">${t}</text>`;
+  return `<svg viewBox="0 0 330 250" style="width:100%;max-width:360px;display:block;margin:8px auto;background:#157784;border-radius:10px" aria-label="Campo rival visto desde tu lado: fondo arriba y red abajo">
+   <g transform="translate(15,10)">${z(0,0,100,100,1)}${z(100,0,100,100,6)}${z(200,0,100,100,5)}${z(0,100,100,100,2)}${z(100,100,100,100,3)}${z(200,100,100,100,4)}
+   <line x1="-8" y1="200" x2="308" y2="200" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+   <circle cx="26" cy="24" r="11" fill="#9F0043" stroke="#fff" stroke-width="2"/><text x="26" y="24" class="zbub" style="font-size:14px">A</text>
+   <circle cx="122" cy="122" r="11" fill="#9F0043" stroke="#fff" stroke-width="2"/><text x="122" y="122" class="zbub" style="font-size:14px">B</text>
+   <circle cx="100" cy="60" r="11" fill="#9F0043" stroke="#fff" stroke-width="2"/><text x="100" y="60" class="zbub" style="font-size:14px">C</text></g>
+   <text x="165" y="238" class="netlbl" style="font-size:11px">TU RED · numeración del equipo rival</text></svg>`;
+}
+function renderTact(){
+  const s=state.tact,r=state.rot;let body='',zb='';
+  if(s===0) body=`<div class="seg" id="defv"><button data-v="per" aria-pressed="${state.defv==='per'}">Perimetral</button><button data-v="rot" aria-pressed="${state.defv==='rot'}">Rotación</button></div>
+    ${ul(['El <b>bloqueo</b> cierra una parte de la cancha y la <b>defensa</b> cubre el resto: así no quedan huecos.','Los zagueros se ubican <b>detrás del bloqueo, en los huecos</b>, no en línea recta detrás de los bloqueadores.','El delantero que no bloquea se separa de la red para cubrir la <b>finta</b>.',state.defv==='per'?'<b>Perimetral:</b> defensores abiertos, cerca de las líneas y del fondo. Fuerte contra remates potentes y bolas largas; más débil contra fintas.':'<b>Rotación:</b> un zaguero sube a cubrir la finta y los otros se desplazan para cubrir el fondo. Cubre muy bien las fintas; exige mucha comunicación.'])}
+    <div class="card warn"><b>Ojo:</b> los nombres y detalles cambian según el entrenador. Es un esquema <b>orientativo</b>: tu entrenador define el de tu equipo. Tras el golpe del saque todos pueden moverse libremente (${art('7.4.4')}) y los zagueros no pueden bloquear (${art('14.6.2')}).</div>`;
+  else if(s===1){zb=zoneBtns(r,'tsel');body=`<p>Las flechas muestran cómo pasa cada jugador de <b>defensa</b> a su <b>arranque de ataque</b>.</p>${ul(['<b>Transición</b> = pasar de defender a atacar.','El primer toque de la defensa va al <b>target</b> (alto, hacia el armador), no hacia la red.','El armador corre al target y los atacantes <b>abren a su arranque</b> mientras se defiende.','Si el rival devuelve una bola fácil (<b>free ball</b>), el equipo se coloca como en una recepción tranquila.'])}`;}
+  else if(s===2) body=`<p>Después de atacar, el equipo se cuelga detrás del atacante, a <b>2–3 m</b>, en semicírculo (círculos <b>C</b>).</p>${ul(['El bloqueo rival puede devolver el balón: la cobertura lo recoge y lo juega.','Los tres jugadores más cercanos al atacante cubren; los otros defienden el fondo.','El atacante, tras rematar, también se levanta y se une a la cobertura.','Si no hay cobertura, un rebote del bloqueo es punto del rival.'])}`;
+  else if(s===3) body=`<p>Dónde sacar en el campo rival (<b>A</b>: fondo, <b>B</b>: corto cerca de la red, <b>C</b>: hueco entre dos receptores):</p>${saqueSVG()}
+    ${ul(['<b>Fondo (A):</b> las bolas largas son difíciles de pasar de frente.','<b>Corto (B):</b> obliga al receptor a salir hacia la red y a abandonar su posición.','<b>Hueco (C):</b> entre dos receptores, ambos dudan.','Al receptor más débil o al que acaba de fallar. Cambia de zona y de tipo para que el rival no se acostumbre.'])}
+    <h3>${ic('target')}Tipos de saque</h3>${ul(['<b>Flotante:</b> sin rotación, trayectoria errática; más seguro.','<b>Flotante en salto:</b> más alto y rápido; algo más de riesgo.','<b>Saque en salto con efecto:</b> más potencia y más error.','Reglamento: un solo lanzamiento ('+art('12.4.2')+'), 8 segundos ('+art('12.4.4')+'), no pisar la línea ('+art('12.4.3')+'). Si toca la red y pasa por el espacio de cruce, vale ('+art('12.6.2')+').'])}`;
+  else if(s===4) body=`<div class="card"><b>2 receptores</b> (un punta + líbero)<br><span class="mut">Más energía para atacar, pero cada receptor cubre mucha cancha. Sólo con receptores muy buenos.</span></div>
+    <div class="card rule"><b>3 receptores</b> (la que usa esta guía: 2 puntas + líbero)<br><span class="mut">Equilibrio entre cobertura y atacantes preparados.</span></div>
+    <div class="card"><b>4–5 receptores</b> (W)<br><span class="mut">Más gente ayudando y cada uno cubre menos; útil contra saques muy potentes. A cambio, menos atacantes listos.</span></div>
+    <div class="card rule"><b>Si recibe alguien que no es el líbero:</b>${ul(PLANB_GEN)}</div>
+    <div class="card warn"><b>Siempre:</b> cualquier formación debe cumplir las posiciones al golpe del saque (${art('7.4')}). Compruébalo en la pestaña «¿Es legal?».</div>
+    <div class="nav"><span></span><button class="btn primary" id="toLegal">Probar en ¿Es legal?${ic('arrow-right')}</button></div>`;
+  else body=`<input type="search" id="glq" class="inp" placeholder="Buscar término…" value="${state.gloss}" aria-label="Buscar en el glosario"><div id="gllist"></div>`;
+  $('#panel').innerHTML=`<h2>${ic('book')}Táctica</h2>
+  <p class="mut">Lo que pasa además de la recepción y el ataque: defensa, transición, cobertura, saque y vocabulario.</p>
+  ${zb}
+  <div class="stepper" id="tasteps">${TACT.map((x,i)=>`<button data-s="${i}" aria-pressed="${i===s}" data-st="${i<s?'done':i===s?'cur':'todo'}"><span>${x}</span><em class="ubar"></em></button>`).join('')}</div>
+  <div>${body}</div>`;
+  $('#tasteps').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.tact=+b.dataset.s;renderTact();});
+  const ts=$('#tsel');if(ts)ts.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.rot=rotFromBtn(b);renderTact();});
+  const dv=$('#defv');if(dv)dv.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.defv=b.dataset.v;renderTact();});
+  const tl=$('#toLegal');if(tl)tl.onclick=()=>go('legal');
+  const gl=$('#glq');
+  const drawG=()=>{const q=(state.gloss||'').toLowerCase().trim();
+    const L=GLOSS.filter(g=>!q||(g[0]+' '+g[1]).toLowerCase().includes(q));
+    $('#gllist').innerHTML=L.length?L.map(g=>`<div class="gl"><b>${g[0]}</b><span>${g[1]}</span></div>`).join(''):'<p class="mut">Sin resultados.</p>';};
+  if(gl){gl.addEventListener('input',e=>{state.gloss=e.target.value;drawG();});drawG();}
+  tactDraw();
+}
+function tactDraw(){
+  clearOv();const s=state.tact,r=state.rot;
+  if(s===0){show(null,r);
+    const ov=$('#ov');
+    bubble(1.5,0.7,4,true);bubble(3.0,0.7,3,true);mlabel(2.25,-0.45,'DOBLE BLOQUEO');
+    bubble(6.8,3.2,2,false);mlabel(6.8,4.3,'CUBRE LA FINTA');
+    if(state.defv==='per'){bubble(1.5,6.9,5,false);bubble(4.5,7.8,6,false);bubble(7.6,6.9,1,false);mlabel(4.5,5.3,'DEFENSORES ABIERTOS Y AL FONDO');}
+    else{bubble(2.8,4.2,5,false);bubble(1.6,7.2,6,false);bubble(6.0,7.0,1,false);mlabel(4.5,5.9,'EL ZAGUERO SUBE A LA FINTA');}
+    arrow([8.4,-0.6],[2.2,1.4],'set','ataque rival');}
+  else if(s===1){const map=show('def',r);
+    formation(r,'def').forEach(p=>{const role=dispRole(p.role,p.zone),m=map[role];if(!m)return;const b=attackPos(role,p.zone,r);
+      if(Math.hypot(m.x-b[0],m.y-b[1])>0.8)arrow([m.x,m.y],b,'path','');});}
+  else if(s===2){show(null,r);
+    bubble(2.0,2.0,'A',true);mlabel(2.0,0.85,'ATACANTE');
+    el('circle',{cx:sx(2.0),cy:sy(2.0),r:3*40,fill:'none',stroke:'#fff','stroke-width':2.5,'stroke-dasharray':'8 6'},$('#ov'));
+    [[3.7,3.3],[2.0,4.4],[0.9,3.3]].forEach(p=>bubble(p[0],p[1],'C',false));
+    bubble(7.0,0.9,'S',false);bubble(4.5,6.6,'D',false);bubble(7.4,5.6,'D',false);
+    mlabel(4.5,8.2,'COBERTURA A 2–3 M');}
+  else if(s===3){show(null,r);}
+  else show(null,r);
+}
+function GENQ(){return [
+  mc('Alguien que normalmente no recibe (por ejemplo el central) recibe el saque. ¿Qué hace?','Grita "¡mía!", pasa alto al target y ya no cuenta para la quick',['Pasa a la red y corre a rematar','Deja pasar la bola','Pasa y sigue con la rápida'],'El que recibe por emergencia no ataca de primera: pasa alto al target y se reubica.'),
+  mc('Cuando recibe alguien que no es el líbero, ¿qué le armas?','Bola alta y segura',['Quick siempre','Pipe siempre','Zaga al opuesto'],'Sin un pase perfecto no hay tiempo para jugadas rápidas.'),
+  mc('¿Qué es una "finta" o "tip"?','Un toque suave por encima o al lado del bloqueo, en lugar de un remate fuerte',['Un saque corto','Un pase de recepción','Una falta de red'],'La finta busca el hueco que deja la defensa.'),
+  mc('Después de un ataque propio, ¿qué hace el resto del equipo?','Se coloca en cobertura detrás del atacante',['Se queda mirando','Corre a sacar','Sale de la cancha'],'La cobertura recoge los rebotes del bloqueo rival.'),
+  mc('¿Qué es una bola libre (free ball)?','Una bola fácil que el rival devuelve sin atacar',['Un saque directo','Un balón fuera','Un remate fuerte'],'Se recibe con una formación tranquila.'),
+  mc('¿Qué es un side-out?','Ganar la jugada cuando recibes: recuperas el saque y rotas',['Un saque directo','Un cambio de campo','Un tiempo muerto'],'Cuando el equipo que recibe gana la jugada, rota y saca.'),
+  mc('¿Qué es un wipe (toque al bloqueo)?','Un golpe a la mano del bloqueo para que la bola salga fuera',['Un saque flotante','Un pase en cobertura','Un cambio de líbero'],'Es una forma de usar el bloqueo rival a tu favor.'),
+  mc('El equipo que SACA, ¿debe respetar las posiciones al golpe del saque?','No: puede ocupar cualquier posición',['Sí, igual que el que recibe','Sólo los delanteros','Sólo el sacador'],'Sólo el equipo que recibe debe estar en orden de rotación (art. 7.4).'),
+  mc('¿Cuántos receptores tiene la formación base de esta guía?','3 (dos puntas y el líbero)',['2','4','5'],'Reciben OH1, OH2 y el líbero; el resto se esconde del pasillo de pase.'),
+  mc('¿Para qué sirve sacar al hueco entre dos receptores?','Para que ambos duden y nadie asuma la bola',['Para que salga fuera','Para sacar corto','Para evitar el bloqueo'],'La duda genera pases malos.')
+];}
+
+/* ============ Plan B: recibe alguien que no es el líbero ============ */
+const PLANB_GEN=[
+ 'Quien recibe sin ser receptor habitual grita <b>"¡mía!"</b> y juega la bola: nadie más va a ella.',
+ 'Pase <b>alto y al target</b> (nunca hacia la red): da tiempo al armador y a los atacantes para ajustarse.',
+ 'El que recibió <b>no ataca de primera</b>: se reubica para cubrir o para un ataque de segunda ola.',
+ 'El armador pasa a <b>bola alta</b>: nada de quick ni pipe salvo que el pase sea perfecto.',
+ 'El líbero y los puntas <b>cierran el hueco</b> que dejó el compañero: se desplazan hacia su carril.'
+];
+const PLANB={
+ A:['Si el saque cae en ti: grita "¡mía!" y pasa <b>alto a zona 3</b>, no al target.',
+    'Avisa quién arma: el <b>armador de emergencia</b> (acordadlo antes del partido; normalmente el opuesto o el punta más cercano).',
+    'Después del pase pasas a ser <b>atacante o cobertura</b>: abre a tu zona de ataque o cubre.',
+    'Si recibe otro (no el líbero): llegas al target igual y armas <b>bola alta</b> al punta; pide al central que <b>salte igual</b> como señuelo.'],
+ OP:['Si el saque va a ti: "¡mía!", plataforma estable y pase <b>alto al target</b>.',
+    'Tras recibir no podrás atacar de primera: avisa al armador ("¡voy tarde!") y vuelve a tu arranque para una segunda ola.',
+    'Es legal que recibas: el reglamento no lo impide ('+art('7.4')+'); no recibir es una costumbre táctica.',
+    'Si recibe otro, sigues con tu plan: cruzas a zona 2 y pides <b>alta</b>.'],
+ E:['Eres receptor habitual: si el líbero no llega, tomas también el carril del medio; reparte con "mía / tuya".',
+    'Si recibes en la red, da el paso atrás, pasa alto y vuelve a la línea de 3 m para atacar aunque sea tarde.',
+    'Si recibe el otro punta o alguien de emergencia, tú pides <b>bola alta</b> y aceleras tu aproximación.'],
+ C:['El central no suele recibir: si el saque cae en ti, "¡mía!" y pase <b>alto al target</b>.',
+    'Ya no vas a la quick: <b>cubres o bloqueas</b> el siguiente ataque; avisa al armador.',
+    'Si recibe otro, tú saltas igual la quick como señuelo: libera a tus compañeros.']
+};
+function planBCard(r){
+  const g=gtype(r),k=g==='set'?'A':(g==='opp'||g==='cover')?'OP':g==='oh'?'E':'C';
+  return `<h3>${ic('shield')}Plan B: si recibe alguien que no es el líbero</h3>
+  <p class="mut">El líbero no se come todas las bolas. Decide antes qué hace cada uno.</p>
+  <div class="card warn"><b>Para todos</b>${ul(PLANB_GEN)}</div>
+  <div class="card"><b>Tu papel</b>${ul(PLANB[k])}</div>`;
+}
+
+/* ============ Pestaña 1: Inicio de partido ============ */
+function lineupTable(r){
+  const lu=lineup(r),sz=myZone(r);
+  const rows=[4,3,2,5,6,1].map(z=>`<tr class="${z===sz?'me':''}"><td>Zona ${z}</td><td>${z>=2&&z<=4?'Delantera':'Zaguera'}</td><td>${nm(dispRole(lu[z],z))}</td></tr>`).join('');
+  return `<table class="lu"><tr><th>Posición</th><th>Fila</th><th>Jugador</th></tr>${rows}</table>`;
+}
+function renderInicio(){
+  const r=state.introRot,sz=myZone(r),lu=lineup(r);
+  const views=[['base','Alineación'],['rec','Equipo recibe'],['serve','Equipo saca']];
+  $('#panel').innerHTML=`
+  <h2>Inicio de partido</h2>
+  <p class="mut">Antes del primer silbato, ${ROLE_INTRO[state.role].head}. Esto es lo que tienes que dejar claro.</p>
+
+  <h3>${ic('list-checks')}Checklist previo</h3>
+  <div class="chk">
+   <label><input type="checkbox"><span><b>Planilla de rotación:</b> sabes en qué zona empieza cada jugador. El orden NO cambia durante todo el set.</span></label>
+   ${diagLabel()}
+   <label><input type="checkbox"><span><b>Calentamiento:</b> ${ROLE_INTRO[state.role].warm}</span></label>
+   <label><input type="checkbox"><span><b>Señales/palabras:</b> ${ROLE_INTRO[state.role].sig}</span></label>
+   <label><input type="checkbox"><span><b>Mirar al rival:</b> ¿su bloqueo es alto? ¿quién es su mejor sacador? ¿hacia dónde saca?</span></label>
+   <label><input type="checkbox"><span><b>Sorteo:</b> sabes si empiezas sacando o recibiendo y desde qué zona empiezas.</span></label>
+  </div>
+
+  <h3>${ic('rotate')}Simulador de rotación</h3>
+  <p>Mira cómo rota tu equipo. <b>Se rota 1 lugar en sentido horario cada vez que recuperas el saque</b> (side-out), no cada punto. El jugador que queda en zona 1 saca.</p>
+  <p><b>¿En qué zona empiezas?</b></p>
+  ${zoneBtns(r,'startZ')}
+  <div class="seg" id="introView">${views.map(v=>`<button data-v="${v[0]}" aria-pressed="${state.introView===v[0]}">${v[1]}</button>`).join('')}</div>
+  <button class="btn primary" id="rotBtn">${ic('rotate')}Recuperamos el saque: rotar</button>
+  <p><b>Rotación ${r}</b> · ${LABEL[state.me]} en <b>zona ${sz}</b> · Saca en zona 1: <b>${NAME[lu[1]]}</b></p>
+  ${lineupTable(r)}
+  <div class="card"><b>Equipo saca primero:</b> el jugador de zona 1 saca; el resto puede ocupar <b>cualquier posición</b> al golpe del saque (art. 7.4) y luego pasa a defensa. <br><b>Equipo recibe primero:</b> te colocas según la regla de solapamiento de tu zona (pestaña «¿Cómo rotar?»).</div>
+  <div class="card rule"><b>Regla clave de posiciones (art. 7.4):</b> al golpe del saque, el equipo que <u>recibe</u> debe estar en su orden de rotación: cada zaguero más lejos de la red que el delantero de su columna (5 tras 4, 6 tras 3, 1 tras 2) y, en cada fila, orden 4-3-2 y 5-6-1. Se controla por la posición de los pies. El equipo que saca es libre. Tras el golpe todos se mueven libremente.</div>
+  <div class="nav"><span></span><button class="btn primary" id="goRot">Ver cómo rotar paso a paso${ic('arrow-right')}</button></div>`;
+  $('#startZ').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+    state.introRot=rotFromBtn(b);renderInicio();});
+  $('#introView').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.introView=b.dataset.v;renderInicio();});
+  $('#rotBtn').onclick=()=>{state.introRot=state.introRot%6+1;renderInicio();};
+  $('#goRot').onclick=()=>{state.rot=state.introRot;state.step=0;go('rot');};
+  clearOv();
+  show(state.introView,r);
+  if(state.introView==='serve') mlabel(8.0,8.9,'SACA');
+}
+
+/* ============ Pestaña 2: Mi rotación ============ */
+
+function options(r){
+  const lu=lineup(r),out=[];
+  ZONES.forEach(z=>{
+    const role=lu[z],f=isFront(z);
+    if(role===activeRole(r)){ if(f) out.push({role,pos:null,short:'',txt:'<b>Finta (segunda)</b>: si el pase te deja pegado a la red y el bloqueo mira a otro lado, ataca tú.'}); return; }
+    if(role[0]==='C'&&!f) return;
+    if((role==='A'||role==='OP')&&state.sys!=='5-1'&&!f) return;
+    const p=attackPos(role,z,r);
+    if(role[0]==='C') out.push({role,pos:p,short:'Rápida',txt:'<b>Rápida al central</b> (bola baja, cerca de ti): sólo con pase bueno.'});
+    else if(role==='A'||role==='OP') out.push({role,pos:p,short:f?'Atrás':'Zaga',txt:f?'<b>'+NAME_ES[role]+' por zona 2</b> (colocación hacia atrás): buena con pase bueno o regular.':'<b>Zaga del opuesto</b> por zona 1, atacando desde detrás de la línea de 3 m.'});
+    else out.push({role,pos:p,short:f?'Alta':'Pipe',txt:f?'<b>Bola alta al punta</b> (zona 4): tu salida segura con pase malo.':'<b>Pipe</b> del punta de fondo (zona 6) desde detrás de la línea de 3 m.'});
+  });
+  return out;
+}
+function stepBodyOP(r,s){
+  const lu=lineup(r),z=myZone(r),f=isFront(z),sz=OPP[z];
+  if(s===0) return `<p>Estás <b>${ZN[z]}</b> (zona ${z}). ${f?'Tu fila es delantera, pero tu ataque es por la <b>derecha</b>.':'Eres zaguero: tu ataque es de <b>zaga por zona 1</b> (despegando detrás de la línea de 3 m).'}</p>${lineupTable(r)}
+    <ul class="steps"><li>Tu diagonal es <b>${NAME[lu[sz]]}</b>, en zona ${sz}.</li>
+    <li>Fila delantera (4-3-2): ${frontRow(r).map(nm).join(' · ')}.</li>
+    <li>${f?'Eres uno de los <b>3 atacantes de red</b> (con punta y central); el armador está atrás.':'Con el armador delante, tienes <b>2 atacantes de red</b> y tú atacas de zaga: tu ataque desde atrás es clave.'}</li></ul>`;
+  if(s===1) return `<ul class="steps">${OREC[z].concat(COMMON_OP.rec).map(x=>`<li>${x}</li>`).join('')}</ul>
+    <div class="card rule"><b>Regla de solapamiento en tu zona:</b> ${myRule(r)}</div>
+    <p class="mut">Los círculos azules punteados marcan a quienes <b>reciben</b>.</p>`;
+  if(s===2) return `<ul class="steps">${OTRANS[z].concat(COMMON_OP.trans).map(x=>`<li>${x}</li>`).join('')}</ul>
+    <div class="card warn"><b>Tu punto de arranque:</b> ${f?'zona 2, a ~1,5–2 m de la red y cerca de la banda derecha':'zona 1, a 1–2 m detrás de la línea de 3 m, cerca de la banda derecha'}.</div>`;
+  if(s===3) return `<p>Cuando el armador llega al target, la bola te llega <b>hacia fuera</b> (flecha negra). Esto haces:</p>
+    <ul class="steps">
+     <li>${f?'<b>Aproximación de 3 pasos</b> desde fuera de la banda: último paso largo, brazos atrás, salto en diagonal hacia la red.':'<b>Ataque de zaga:</b> despega <b>detrás de la línea de 3 m</b> (puedes aterrizar delante). Si pisas la línea antes de golpear es falta.'}</li>
+     <li><b>Pase perfecto:</b> bola alta o media con ritmo; busca el golpe fuerte o el de colocación por el hueco del bloqueo.</li>
+     <li><b>Pase malo:</b> te llegará bola alta: ataca con seguridad (diagonal larga o toque al bloqueo), sin regalar balón.</li>
+     <li><b>No te cierres:</b> la bola viene de fuera hacia fuera; abre el hombro y no te quedes pegado a la red.</li>
+    </ul>
+    <div class="card warn"><b>Si eres zurdo:</b> en zona 2 tu brazo de golpeo queda del lado de la cancha y no del lado de la banda, así que el golpe <b>cruzado</b> sale natural y el bloqueo (acostumbrado a diestros) lo lee distinto. Varía: diagonal, línea con giro de muñeca y toque al bloqueo.</div>
+    <p class="mut">Tip: pídele la bola al armador con la voz o una señal; si siempre atacas igual, el bloqueo te lee.</p>`;
+  if(s===4) return `<ul class="steps">${ODEF[z].map(x=>`<li>${x}</li>`).join('')}</ul>
+    <p class="mut">Tu otro oficio: ser <b>segundo armador</b> de emergencia si el armador defiende la primera bola o llega tarde a la red.</p>`;
+  return z===1?`<ul class="steps"><li><b>Sacas tú</b> desde detrás de la línea de fondo, zona derecha.</li><li>Tras sacar, entra rápido a la cancha a tu defensa de zona 1.</li><li>Luego, transición a tu punto de zaga.</li></ul>`
+    :`<ul class="steps"><li>Saca el jugador de zona 1: <b>${NAME[lu[1]]}</b>.</li><li>Tu base es ${f?'el bloqueo':'tu zona de defensa'} (zona ${z}); tras el saque ve a defensa y mira dónde ataca el rival.</li></ul>`;
+}
+function stepBody(r,s){const b=stepBodyCore(r,s);return(s===1&&!['lib','bench'].includes(gtype(r)))?b+planBCard(r):b;}
+function stepBodyCore(r,s){
+  {const f={opp:stepBodyOP,cover:stepBodyCover,oh:stepBodyOH,mb:stepBodyMB,bench:stepBodyBench,lib:stepBodyLib}[gtype(r)];if(f)return f(r,s);}
+  const reff=ZONES.indexOf(myZone(r))+1,d=RD[reff],lu=lineup(r),sz=myZone(r);
+  if(s===0){
+    const fr=frontRow(r).map(x=>NAME[x]).join(' · ');
+    return `<p>${resumenFor(reff,d)}</p>${lineupTable(r)}
+    <ul class="steps"><li>Tu diagonal (opuesto de posición) es el <b>${NAME[lu[OPP[sz]]]}</b>, en zona ${OPP[sz]}.</li>
+    <li>Fila delantera (4-3-2): ${fr}.</li>
+    <li>Atacantes de red (sin contarte): <b>${isFront(sz)?2:3}</b>.</li></ul>`;
+  }
+  if(s===1) return `<ul class="steps">${d.rec.concat(COMMON.rec).map(x=>`<li>${x}</li>`).join('')}</ul>
+    <div class="card rule"><b>Regla de solapamiento en tu zona:</b> ${myRule(r)}</div>
+    <p class="mut">Los círculos azules punteados en la cancha marcan a quienes <b>reciben</b> el saque.</p>`;
+  if(s===2) return `<ul class="steps">${d.trans.concat(COMMON.trans).map(x=>`<li>${x}</li>`).join('')}</ul>
+    <div class="card warn"><b>Target:</b> zona 2–3, a ~1 m de la red y ~2 m de la banda derecha (marca "A" naranja).</div>`;
+  if(s===3){
+    const o=options(r);
+    return `<p>Según tu fila delantera, estas son tus opciones <b>(las flechas negras de la cancha)</b>:</p>
+    <ul class="steps">${o.map(x=>`<li>${x.txt}</li>`).join('')}</ul>
+    <h3>Decide según la calidad del pase</h3>
+    <ul class="steps">
+     <li><b>Pase perfecto (a tu target):</b> todas las opciones, incluida la rápida y el pipe. Engaña al bloqueo.</li>
+     <li><b>Pase regular (a ~1–2 m de la red o desviado):</b> bola un poco más alta al punta o al opuesto.</li>
+     <li><b>Pase malo (lejos de la red):</b> bola alta, segura y a zona 4. Dale tiempo al atacante.</li>
+    </ul>
+    <p class="mut">Tip: reparte el balón. Si siempre vas al mismo, el bloqueo rival ya sabe dónde estar.</p>
+    ${isFront(sz)?'<div class="card warn"><b>Si eres zurdo y armador delantero:</b> tu finta con la izquierda suele salir por un ángulo que el bloqueo rival ve menos. Úsala con criterio, no más de 1 de cada 6–8 balones.</div>':''}`;
+  }
+  if(s===4) return `<ul class="steps">${d.def.map(x=>`<li>${x}</li>`).join('')}</ul>
+    <p class="mut">Después de defender o bloquear, tu trabajo siempre vuelve a ser: <b>llegar al target y armar</b>.</p>`;
+  return `<ul class="steps">${saqueList(r,d)}</ul>
+    <p class="mut">Cuando tu equipo saca, tras el golpe todos pasan a su formación de defensa (paso anterior).</p>`;
+}
+function renderRot(){
+  const r=state.rot,s=state.step,d=RD[r];
+  $('#panel').innerHTML=`
+  <h2>¿Cómo rotar? Paso a paso</h2>
+  <p><b>¿Dónde te toca jugar?</b> Elige tu zona de ${ME_NAME()}:</p>
+  ${zoneBtns(r,'zsel')}
+  <h3 style="margin-top:6px">Rotación ${r} · Zona ${myZone(r)} · ${ZN[myZone(r)]}</h3>
+  <p class="mut">${LABEL[state.me]} · sistema ${state.sys} · <b>${GDESC[gtype(r)]}</b></p>
+  <div class="stepper" id="steps">${STEP_SHORT(r).map((t,i)=>`<button data-s="${i}" aria-pressed="${i===s}" data-st="${i<s?'done':i===s?'cur':'todo'}"><span>${t}</span><em class="ubar"></em></button>`).join('')}</div>
+  <div class="card"><b>Paso ${s+1} de 6 · ${STEPS_T(r)[s]}</b></div>
+  <div>${stepBody(r,s)}</div>
+  <div class="nav">
+    <button class="btn" id="prev" ${s===0?'disabled':''}>${ic('arrow-left')}Anterior</button>
+    <button class="btn primary" id="next">${s===5?'Siguiente rotación'+ic('rotate'):'Siguiente'+ic('arrow-right')}</button>
+  </div>`;
+  $('#zsel').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.rot=rotFromBtn(b);state.step=0;renderRot();});
+  $('#steps').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.step=+b.dataset.s;renderRot();});
+  $('#prev').onclick=()=>{state.step=Math.max(0,s-1);renderRot();};
+  $('#next').onclick=()=>{if(s===5){state.rot=r%6+1;state.step=0;}else state.step=s+1;renderRot();};
+  courtRot();
+}
+function courtRot(){
+  const r=state.rot,s=state.step,lu=lineup(r);
+  clearOv();
+  const view=['base','rec','att','att','def','serve'][s];
+  const map=show(view,r);
+  if(s===1){
+    ROLES.filter(x=>x!=='A'&&x!=='OP'&&map[x]&&!(x[0]==='C')).forEach(x=>{
+      el('circle',{cx:sx(map[x].x),cy:sy(map[x].y),r:25,class:'recring'},$('#ov'));
+    });
+    if(map[state.me]) mlabel(map[state.me].x,map[state.me].y+1.0,'tu base');
+  }
+  if(s===2&&gtype(r)==='opp'){
+    const z=myZone(r),a=REC[cr(r)][z],b=attackPos(state.me,z,r);
+    el('circle',{cx:sx(a[0]),cy:sy(a[1]),r:7,fill:'none',stroke:'var(--path)','stroke-width':2.5,'stroke-dasharray':'3 3'},$('#ov'));
+    if(Math.hypot(a[0]-b[0],a[1]-b[1])>0.8) arrow(a,b,'path','tu cruce');
+    mlabel(b[0],b[1]+1.0,'ARRANQUE');
+  }
+  if(s===2&&gtype(r)==='cover'){
+    const z=myZone(r),a=REC[cr(r)][z],b=attackPos(state.me,z,r);
+    el('circle',{cx:sx(a[0]),cy:sy(a[1]),r:7,fill:'none',stroke:'var(--accent)','stroke-width':2.5,'stroke-dasharray':'3 3'},$('#ov'));
+    arrow(a,b,'path','tu cobertura');
+  }
+  if(s===2&&gtype(r)==='set'){
+    const a=REC[cr(r)][myZone(r)];
+    el('circle',{cx:sx(a[0]),cy:sy(a[1]),r:7,fill:'none',stroke:'var(--path)','stroke-width':2.5,'stroke-dasharray':'3 3'},$('#ov'));
+    arrow(a,T,'path','tu carrera');
+    mlabel(T[0],T[1]-0.8,'TARGET');
+  }
+  if(s===3){
+    if(gtype(r)==='cover'){const b=attackPos(state.me,myZone(r),r);mlabel(b[0],b[1]+1,'COBERTURA');}
+    else if(gtype(r)==='opp') arrow(T,attackPos(state.me,myZone(r),r),'set','tu bola');
+    else options(r).forEach(o=>{ if(o.pos) arrow(T,o.pos,'set',o.short); });
+  }
+  {const g=gtype(r),z=myZone(r);
+   if((g==='oh'||(g==='mb'&&isFront(z)))&&(s===2||s===3)){
+     const b=attackPos(state.me,z,r);
+     if(s===2){const a=REC[cr(r)][z];
+       el('circle',{cx:sx(a[0]),cy:sy(a[1]),r:7,fill:'none',stroke:'var(--accent)','stroke-width':2.5,'stroke-dasharray':'3 3'},$('#ov'));
+       if(Math.hypot(a[0]-b[0],a[1]-b[1])>0.8) arrow(a,b,'path',g==='mb'?'a tu rápida':(isFront(z)?'a zona 4':'a tu pipe'));
+       mlabel(b[0],b[1]+1.0,'ARRANQUE');}
+     else arrow(T,b,'set',g==='mb'?'Rápida':(isFront(z)?'Alta':'Pipe'));
+   }
+   if(g==='lib'&&(s===2||s===3)){const a=REC[cr(r)][z],b=attackPos('L',z,r);
+     if(s===2){el('circle',{cx:sx(a[0]),cy:sy(a[1]),r:7,fill:'none',stroke:'var(--accent)','stroke-width':2.5,'stroke-dasharray':'3 3'},$('#ov'));arrow(a,b,'path','a cobertura');}
+     else arrow(b,T,'set','2ª bola');}
+   if(g==='bench'&&s<5&&map.L) mlabel(map.L.x,map.L.y+1.1,'LÍBERO POR TI');
+  }
+  if(s===5) mlabel(SERVER[0]-0.2,SERVER[1]-0.8,'SACA');
+}
+
+/* ============ Pestaña 3: Prueba ============ */
+let Q=null;
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const rnd=n=>1+Math.floor(Math.random()*n);
+function mc(q,correct,wrong,explain,r){
+  const opts=shuffle([correct,...shuffle(wrong).slice(0,3)]);
+  return {type:'mc',q,opts,ans:opts.indexOf(correct),explain,r};
+}
+function buildQuiz(){
+  if(['punta','central','libero'].includes(state.role)) return buildQuizOther();
+  const L=[],me=state.me,mz=myZone;
+  // siguiente zona al rotar
+  {const r0=rnd(6),z=mz(r0),nz=ZONES[ZONES.indexOf(z)+1]||ZONES[0];
+   L.push(mc(`Estás de ${ME_NAME()} en <b>zona ${z}</b> y tu equipo recupera el saque (side-out). ¿A qué zona rotas?`,'Zona '+nz,[1,2,3,4,5,6].filter(x=>x!==nz).map(x=>'Zona '+x),
+     `Se rota 1 lugar en sentido horario: 1, 6, 5, 4, 3, 2 y otra vez 1. Desde zona ${z} pasas a la zona ${nz}.`,r0));}
+  // atacantes de red / dónde atacas
+  const gOpp=state.sys==='5-1'&&me==='OP';
+  if(gOpp){const r=rnd(6),z=mz(r),f=isFront(z);
+   L.push(mc(`Estás en <b>zona ${z}</b>. ¿Dónde y cómo atacas?`,f?'Por zona 2 (derecha de la red), con carrera desde fuera':'De zaga por zona 1, despegando detrás de la línea de 3 m',
+     [f?'De zaga por zona 1, despegando detrás de la línea de 3 m':'Por zona 2 (derecha de la red), con carrera desde fuera','Por zona 4 (izquierda de la red)','Sólo bloqueo, nunca ataco'],
+     f?'En fila delantera el opuesto ataca por la derecha de la red, tras cruzar desde su zona.':'En fila trasera el opuesto ataca de zaga por zona 1 y debe despegar detrás de la línea de 3 m.',r));}
+  else {const ra=[1,2,3,4,5,6].filter(isSetting),r=ra[Math.floor(Math.random()*ra.length)],z=mz(r),n=isFront(z)?2:3;
+   L.push(mc(`Estás en <b>zona ${z}</b>. ¿Cuántos atacantes de red (sin contarte) tienes?`,String(n),['1','2','3','4'].filter(x=>x!==String(n)),
+     isFront(z)?'Estás en la fila delantera: sólo quedan 2 delanteros además de ti.'+(ONE?' El opuesto ataca desde atrás.':' El otro armador está atrás y no ataca.'):'Estás en la fila de atrás: los 3 delanteros (punta, central y opuesto/otro) pueden atacar.',r));}
+  // reglas de solapamiento (2)
+  shuffle([1,2,3,4,5,6]).slice(0,2).forEach(r=>{
+    const z=mz(r);
+    L.push(mc(`El rival va a sacar y estás en <b>zona ${z}</b>. ¿Cómo debes colocarte respecto a tus compañeros?`,RULEZ[z],Object.keys(RULEZ).filter(k=>+k!==z).map(k=>RULEZ[k]),
+      'Regla de solapamiento para la zona '+z+': '+RULEZ[z],r));
+  });
+  // clic en recepción (2)
+  shuffle([1,2,3,4,5,6]).slice(0,2).forEach(r=>L.push({type:'click',kind:'rec',r,q:`El rival va a sacar. Estás en <b>zona ${mz(r)}</b>. <b>Toca en la cancha</b> dónde te colocas (verás a tus compañeros ya puestos).`}));
+  // clic en target
+  L.push(gOpp?{type:'click',kind:'opAttack',q:'Eres opuesto en la fila delantera. <b>Toca en la cancha</b> tu punto de arranque para atacar por la derecha.'}
+    :{type:'click',kind:'target',q:'<b>Toca en la cancha</b> el target del armador (donde recibes el pase para armar).'});
+  // conceptuales
+  const SO=[
+   mc('¿Por qué lado de la red ataca principalmente el opuesto?','Por zona 2 (derecha)',['Por zona 4 (izquierda)','Sólo por el centro','Siempre de zaga'],'El opuesto es el atacante de la derecha; el punta ataca por la izquierda.'),
+   mc('Atacas de zaga por zona 1. ¿Dónde debes despegar?','Detrás de la línea de 3 m',['Pisando la línea de 3 m','Pegado a la red','Detrás de la línea de fondo'],'El atacante de fila trasera debe despegar detrás de la línea de 3 m; puede aterrizar delante.'),
+   mc('¿Cuándo empiezas tu cruce hacia zona 2?','Al golpe del saque',['Cuando el rival remata','Cuando el armador toca el balón','Cuando el pase ya está en el aire'],'Con el golpe del saque se acaba la regla de posiciones. Si esperas al pase llegas tarde.'),
+   mc('El pase es malo y el armador te manda una bola alta. ¿Qué haces?','Atacar con seguridad, sin regalar el balón',['Pegarle lo más fuerte posible sin mirar','Dejarla pasar','Pedir que se la dé a otro'],'Con bola difícil asegura el ataque (diagonal larga o toque al bloqueo).'),
+   mc('¿Qué ventaja suele dar un opuesto zurdo?','Golpe cruzado natural y ángulo distinto al que espera el bloqueo',['Que no te pueden bloquear','Poder atacar sin carrera','Que el saque no cuenta'],'En zona 2 el brazo zurdo queda hacia el centro: el cruzado sale natural y desorienta a bloqueadores acostumbrados a diestros.'),
+   mc('¿El opuesto suele recibir el saque?','No: se esconde para poder atacar',['Sí, siempre recibe primero','Sólo en zona 1','Sólo si es zurdo'],'En el 5-1 el opuesto no suele recibir: se preserva para atacar.'),
+   mc('¿Quién está en tu diagonal (3 posiciones de ti)?','El armador',['Un central','El líbero','Un punta'],'Armador y opuesto siempre están en diagonal.')
+  ];
+  const is42=state.sys==='4-2';
+  const SS=[
+   mc(is42?'En el 4-2, ¿quién arma?':'En el 6-2, ¿quién arma?',is42?'El armador de la fila delantera':'El armador de la fila trasera',[is42?'El armador de la fila trasera':'El armador de la fila delantera','Siempre S1','El líbero'],is42?'En el 4-2 arma el armador que está en la red; el de atrás no arma.':'En el 6-2 arma el armador que está atrás; el de delante ataca.'),
+   mc('Los dos armadores (S1 y S2) están…','En diagonal, a 3 posiciones uno del otro',['Juntos, uno al lado del otro','Siempre los dos en la fila delantera','Siempre los dos en la fila trasera'],'Igual que en el 5-1, armadores en diagonal: cuando uno está delante, el otro está atrás.'),
+   is42?mc('En el 4-2, ¿cuántos atacantes de red hay además del armador que arma?','2',['3','1','4'],'En el 4-2 el armador delantero arma y quedan 2 atacantes de red.')
+       :mc('En el 6-2, cuando arma el armador de atrás, ¿cuántos atacantes de red hay?','3',['2','1','4'],'En el 6-2 el armador delantero ataca, así que tienes 3 atacantes de red.'),
+   is42?mc('En el 4-2, el armador de la fila trasera tras el saque…','Se coloca en cobertura y defiende; no arma ni ataca',['Arma desde zaga','Ataca de zaga por zona 1','Sale al target'],'El que está atrás no arma en el 4-2: cubre y defiende.')
+       :mc('En el 6-2, el armador de la fila delantera tras el saque…','Cruza a la derecha y ataca como un opuesto',['Arma desde la red','Se queda de líbero','No participa'],'En el 6-2 el armador delantero se convierte en atacante por la derecha.')
+  ];
+  const S=[
+   mc('¿Cuándo dejan de aplicar las reglas de posición (solapamiento)?','En el momento en que el sacador golpea el balón',['Cuando el balón cruza la red','Cuando el pase llega al armador','Cuando el árbitro silba el fin del punto'],'Una vez golpeado el saque cada jugador puede moverse libremente.'),
+   mc('¿Cuándo debes empezar a correr hacia el target?','Al golpe del saque',['Cuando el receptor toca el balón','Cuando el pase ya va en el aire','Cuando el entrenador lo pide'],'Si esperas al pase, llegarás tarde. Sal con el contacto del saque.'),
+   mc('El pase es malo y cae lejos de la red. ¿Qué armas?','Bola alta y segura al punta por zona 4',['Una rápida al central','Un pipe de fondo','Una finta de segunda de espalda'],'Con pase malo, juega seguro: bola alta y al lado más natural, para dar tiempo al atacante.'),
+   mc('Pase perfecto a tu target. ¿Qué ventaja tienes?','Todas las opciones, incluidas rápida y pipe',['Sólo puedes armar al opuesto','Sólo la bola alta al punta','Debes devolver la pelota de primera'],'Un buen pase abre todo el menú y obliga al bloqueo a dudar.'),
+   mc('¿En qué rotación el armador tiene la penetración más larga hasta el target?','Zona 5 (atrás a la izquierda)',['Zona 1 (atrás a la derecha)','Zona 2 (delante a la derecha)','Zona 3 (delante al centro)'],'Desde zona 5 cruzas toda la cancha por detrás del punta de zona 3.',3),
+   mc('Tu equipo gana un punto estando en recepción (recupera el saque). ¿Qué pasa?','Todos rotan un lugar en sentido horario y saca quien queda en zona 1',['No cambia nada, sigue sacando el mismo','Todos rotan en sentido antihorario','Sólo cambia el armador'],'La rotación se hace al recuperar el saque, en sentido horario.'),
+   mc('En un '+state.sys+', ¿quién está en tu diagonal (3 posiciones de ti)?',ONE?'El opuesto':'El otro armador',['Un central','El líbero','Un punta'],'Armador y opuesto siempre están en diagonal: cuando uno está delante, el otro está atrás.'),
+   mc('Estás en zona 6 (atrás al centro). ¿Hacia dónde sales al golpe del saque?','Diagonal adelante y a la derecha, al target',['Recto hacia la red','A la izquierda a ayudar en la recepción','Me quedo en zona 6 hasta ver el pase'],'La penetración desde zona 6 es en diagonal hacia el target derecho.',2)
+  ];
+  (gOpp?shuffle(SO).slice(0,2):ONE?shuffle(S).slice(0,2):[...shuffle(SS).slice(0,1),...shuffle(S).slice(0,1)]).concat(shuffle(GENQ()).slice(0,1)).forEach(q=>L.push(q));
+  return shuffle(L);
+}
+function renderQuiz(){
+  if(!Q){
+    clearOv();show('base',rnd(6));
+    $('#panel').innerHTML=`<h2>Prueba</h2>
+    <p>10 preguntas con zonas, reglas de posición, recorridos y decisiones de armado. Algunas se responden <b>tocando la cancha</b>.</p>
+    <button class="btn primary" id="startQ">${ic('play')}Empezar prueba</button>`;
+    $('#startQ').onclick=()=>{Q={list:buildQuiz(),i:0,score:0,answered:false,wrong:new Set()};renderQuiz();};
+    return;
+  }
+  if(Q.i>=Q.list.length) return renderResult();
+  const q=Q.list[Q.i];
+  Q.answered=false;
+  $('#panel').innerHTML=`
+   <div class="bar"><div style="width:${Q.i/Q.list.length*100}%"></div></div>
+   <p class="mut">Pregunta ${Q.i+1} de ${Q.list.length} · Aciertos: ${Q.score}</p>
+   <h2 style="font-size:1.1rem">${q.q}</h2>
+   <div id="qbody"></div><div id="fb"></div>`;
+  clearOv();
+  if(q.type==='mc'){
+    show('base',q.r||rnd(6));
+    $('#qbody').innerHTML=`<div class="opts">${q.opts.map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join('')}</div>`;
+    $('#qbody').addEventListener('click',e=>{
+      const b=e.target.closest('.opt');if(!b||Q.answered)return;Q.answered=true;
+      const ok=+b.dataset.i===q.ans;
+      [...$('#qbody').querySelectorAll('.opt')].forEach((x,i)=>{if(i===q.ans)x.classList.add('good');});
+      if(!ok)b.classList.add('bad');
+      finish(ok,q.explain,q.r);
+    });
+  } else {
+    if(q.kind==='rec'){show('rec',q.r,{hide:[state.me]});}
+    else show(null,1);
+    $('#qbody').innerHTML='<p class="mut">Toca un punto de la cancha.</p>';
+  }
+}
+function finish(ok,explain,r){
+  if(ok)Q.score++;else if(r)Q.wrong.add(r);
+  const last=Q.i===Q.list.length-1;
+  $('#fb').innerHTML=`<div class="fb"><b>${ok?'<span class="okt">'+ic('check')+'¡Correcto!</span>':'<span class="badt">'+ic('x')+'No exactamente.</span>'}</b> ${explain||''}</div>
+   <div class="nav"><span></span><button class="btn primary" id="nq">${last?'Ver resultado':'Siguiente'}${ic('arrow-right')}</button></div>`;
+  $('#nq').onclick=()=>{Q.i++;renderQuiz();};
+}
+function renderResult(){
+  clearOv();show('base',1);
+  const n=Q.list.length,p=Q.score/n;
+  const msg=p>=.9?'¡Nivel selección!':p>=.7?'¡Muy bien! Pule los detalles.':p>=.5?'Vas por buen camino: repasa las rotaciones fallidas.':'Repasa la guía paso a paso y vuelve a intentarlo.';
+  const wr=[...Q.wrong].sort();
+  $('#panel').innerHTML=`<h2>${ic('trophy')}Resultado</h2><div class="score">${Q.score} / ${n}</div><p>${msg}</p>
+   ${wr.length?`<p>Rotaciones para repasar: ${wr.map(r=>`<button class="btn" data-r="${r}">Zona ${myZone(r)}</button>`).join(' ')}</p>`:''}
+   <div class="nav"><button class="btn" id="again">Repetir prueba</button><button class="btn primary" id="toRot">Ir a cómo rotar${ic('arrow-right')}</button></div>`;
+  $('#again').onclick=()=>{Q=null;renderQuiz();};
+  $('#toRot').onclick=()=>{state.step=0;go('rot');};
+  $('#panel').querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{state.rot=+b.dataset.r;state.step=0;go('rot');});
+}
+$('#court').addEventListener('click',e=>{
+  if(state.tab!=='quiz'||!Q||Q.i>=Q.list.length||Q.answered)return;
+  const q=Q.list[Q.i];if(q.type!=='click')return;
+  const [mx,my]=evtToM(e);
+  if(mx<0||mx>9||my<0||my>9)return;
+  Q.answered=true;
+  let ok,target,explain;
+  if(q.kind==='rec'){
+    target=REC[cr(q.r)][myZone(q.r)];
+    ok=Math.hypot(mx-target[0],my-target[1])<=1.9;
+    explain=`Posición recomendada (círculo verde). Regla: ${myRule(q.r)}`;
+  } else if(q.kind==='pt'){
+    target=q.target;ok=Math.hypot(mx-target[0],my-target[1])<=q.tol;explain=q.expl;
+  } else if(q.kind==='opAttack'){
+    target=attackPos('OP',2,1);
+    ok=Math.hypot(mx-target[0],my-target[1])<=1.5;
+    explain='Zurdo por zona 2: arranca cerca de la banda derecha, a ~2 m de la red, para entrar en diagonal.';
+  } else {
+    target=T;
+    ok=mx>=5.4&&mx<=8.3&&my<=2.2;
+    explain='El target está en zona 2–3, cerca de la red (~1 m) y a ~2 m de la banda derecha.';
+  }
+  clearOv();
+  el('circle',{cx:sx(target[0]),cy:sy(target[1]),r:20,fill:'rgba(43,138,62,.35)',stroke:'#2b8a3e','stroke-width':3},$('#ov'));
+  el('circle',{cx:sx(mx),cy:sy(my),r:7,fill:ok?'#2b8a3e':'#c92a2a',stroke:'#fff','stroke-width':2},$('#ov'));
+  finish(ok,explain,q.r);
+});
+
+/* ============ Navegación ============ */
+function go(tab){
+  stopPlay();setBall(0,0,{hide:true});{const c=$('#court');if(c&&c.classList)c.classList.remove('drag');}
+  state.tab=tab;
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));
+  if(tab==='general')renderGeneral();
+  else if(tab==='play')renderPlay();
+  else if(tab==='legal')renderLegal();
+  else if(tab==='tact')renderTact();
+  else if(tab==='inicio')renderInicio();
+  else if(tab==='rot')renderRot();
+  else renderQuiz();
+  {const at=document.querySelector('nav.tabs button[aria-selected="true"]'),nv=$('nav.tabs');if(at&&nv)nv.scrollLeft=Math.max(0,at.offsetLeft-16);}
+}
+document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>go(b.dataset.tab));
+$('#libChk').onchange=e=>{state.libero=e.target.checked;go(state.tab);};
+function resetAll(){syncMe();if(state.role==='libero')state.libero=true;{const lc=$('#libChk');if(lc){lc.checked=state.libero;lc.disabled=state.role==='libero';}}applySystem();state.step=0;Q=null;renderSys();
+  [...$('#roleSel').children].forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.role===state.role)));
+  go(state.tab);}
+$('#roleSel').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  state.role=b.dataset.role;if(state.role==='opuesto')state.sys='5-1';resetAll();});
+$('#sysArea').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.sys)state.sys=b.dataset.sys;if(b.dataset.sn)state.sn=b.dataset.sn;if(b.dataset.n)state.n=+b.dataset.n;resetAll();});
+document.querySelectorAll('[data-ic]').forEach(e=>{e.outerHTML=ic(e.dataset.ic);});
+renderSys();
+go('general');
+
+</script>
+</body>
+</html>
